@@ -30,12 +30,12 @@ const Buttons: React.FC = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Button1 />
         <ShowCodeButton onClick={() => handleShowCode("primary")} />
-        {showCode["primary"] && <CodeBlock language="jsx" code={button1code} />}
+        {/* {showCode["primary"] && <CodeBlock language="jsx" code={button1code} />} */}
 
         <Button2 />
         <ShowCodeButton onClick={() => handleShowCode("secondary")} />
         {showCode["secondary"] && (
-          <CodeBlock language="jsx" code={Button2.toString()} />
+          <CodeBlock language="jsx" code={<Button2/>} />
         )}
       </Suspense>
     </div>
