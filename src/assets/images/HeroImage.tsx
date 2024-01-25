@@ -1,10 +1,10 @@
-const HeroImage = () => {
+const HeroImage = ({ className }: { className: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       viewBox="0 0 800 800"
-      className="absolute bottom-0 right-0 h-full opacity-30 lg:w-full lg:h-max sm:opacity-100"
+      className={className}
     >
       <g transform="matrix(0.9986295347545738,0.05233595624294383,-0.05233595624294383,0.9986295347545738,277.48256859534797,-20.386196399007076)">
         <path

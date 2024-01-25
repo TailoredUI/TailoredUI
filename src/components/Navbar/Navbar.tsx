@@ -10,7 +10,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="bg-gradient-to-r from-slate-600 to-transparent p-4 absolute top-4 left-1/2 -translate-x-1/2 w-[90%] xl:w-[75%] z-10 rounded-lg backdrop-blur-sm">
+      <nav className="bg-gradient-to-r from-slate-600 to-transparent p-4 absolute top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[95%] xl:w-[75%] z-10 rounded-lg backdrop-blur-sm">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
             <svg
