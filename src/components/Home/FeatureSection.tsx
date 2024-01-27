@@ -1,3 +1,6 @@
+import { useRef } from "react";
+import { useInView, motion } from "framer-motion";
+
 import FeatureCard from "./FeatureCard";
 import featureContent from "../../assets/content/feature.content";
 import {
@@ -8,7 +11,7 @@ import {
   Feature5Icon,
   Feature6Icon,
 } from "../../assets/images/icons/feature.icons";
-import FeatureImage from "../../assets/images/FeatureImage";
+// import FeatureImage from "../../assets/images/FeatureImage";
 
 const featureIcons: React.ReactNode[] = [
   <Feature1Icon />,
@@ -20,39 +23,88 @@ const featureIcons: React.ReactNode[] = [
 ];
 
 const FeatureSection = () => {
+  const titleRef = useRef(null);
+  const cardContainerRef = useRef(null);
+  const isInView = useInView(titleRef, { once: true });
+  const isCardContainerInView = useInView(cardContainerRef, { once: true });
   return (
-    <>
-      <div className="bg-slate-400 h-16 w-full absolute left-0" />
-      <div className="mx-4 sm:mx-8 xl:mx-64">
+    <div className="relative">
+      {/* <div className="bg-slate-400 h-16 w-full absolute left-0" /> */}
+      <div className="mx-4 sm:mx-8 xl:mx-64 h-max mb-16 mt-44 xs:mt-28 sm:mt-52 lg:mt-0 overflow-hidden">
         <div className="text-center flex flex-col items-center mb-16">
-          <h1 className="uppercase font-bold text-2xl sm:text-5xl mb-8 mt-24">
+          <h1
+            ref={titleRef}
+            className={`uppercase font-bold text-2xl sm:text-5xl my-8 transition-all ease-[cubic-bezier(.41,.15,.68,1.2)] duration-[800ms] ${
+              isInView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-24"
+            }`}
+          >
             Tailor Your Experience
           </h1>
-          <p className="w-full sm:w-1/2 text-md sm:text-lg">
-            Craft unique user interfaces with TailorUI's powerful features.
-            TailorUI brings a set of robust features to enhance your development
-            process and make UI customization a breeze.
+          <p
+            className={`w-full lg:w-2/3 text-md sm:text-lg transition-all ease-[cubic-bezier(.41,.15,.68,1.2)] duration-[800ms] delay-300 ${
+              isInView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-24"
+            }`}
+          >
+            Craft unique user interfaces with TailoredUI's powerful features.
+            TailoredUI brings a set of robust features to enhance your
+            development process and make UI customization a breeze.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
+        <div
+          ref={cardContainerRef}
+          className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 overflow-hidden"
+        >
           {featureContent.map((feature, index) => (
-            <FeatureCard key={index} title={feature.title} desc={feature.desc}>
+            <FeatureCard
+              key={index}
+              title={feature.title}
+              desc={feature.desc}
+              className={`transition-all duration-[1500ms] ease-out delay-500 ${
+                isCardContainerInView
+                  ? index % 2 === 0
+                    ? "opacity-100 md:translate-x-0"
+                    : "opacity-100"
+                  : index % 2 === 0
+                  ? "opacity-0 md:-translate-x-full"
+                  : "opacity-0 md:translate-x-full"
+              } ${
+                !isCardContainerInView
+                  ? (index === 0 && "-translate-x-full xl:-translate-y-full") ||
+                    (index === 1 && "translate-x-full xl:-translate-y-full") ||
+                    (index === 2 &&
+                      "xl:translate-x-full xl:-translate-y-full") ||
+                    (index === 3 &&
+                      "xl:-translate-x-full xl:translate-y-full") ||
+                    (index === 4 && "xl:translate-y-full") ||
+                    (index === 5 && "xl:translate-y-full xl:translate-x-full")
+                  : "xl:translate-x-0 xl:translate-y-0 opacity-100"
+              }`}
+            >
               {featureIcons[index]}
             </FeatureCard>
           ))}
         </div>
-        <div className="mt-16 flex gap-4 justify-center items-center">
-          <h4 className="font-bold text-lg">
-            Ready to unlock the full potential of TailorUI? Start tailoring your
-            UI today!
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 100 }}
+          transition={{ duration: 2.0, ease: "easeOut" }}
+          className="mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center text-center sm:text-left"
+        >
+          <h4 className="font-bold text-lg sm:w-2/3">
+            Ready to unlock the full potential of TailoredUI? Start tailoring
+            your UI today!
           </h4>
-          <button className="bg-blue-500 text-white px-8 py-2 ml-4 rounded-md hidden md:inline-block">
+          <button className="bg-blue-500 text-white px-8 py-2 ml-4 rounded-md">
             Get Started
           </button>
-        </div>
-        <FeatureImage className="absolute top-full right-0 h-[100dvh] 2xl:w-[105dvw] opacity-50 -z-10 rotate-180 hidden sm:block" />
+        </motion.div>
+        {/* <FeatureImage className="absolute top-0 right-0 h-[100vh] 2xl:w-[105dvw] opacity-50 -z-10 rotate-180 hidden sm:block" /> */}
       </div>
-    </>
+    </div>
   );
 };
 

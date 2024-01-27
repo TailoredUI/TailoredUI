@@ -1,27 +1,27 @@
 const featureContent: { title: string; desc: string }[] = [
   {
     title: "Real-Time Customization",
-    desc: "Effortlessly customize UI components in real-time. TailorUI provides an instant preview of your changes, ensuring a seamless and efficient customization experience.",
+    desc: "Effortlessly customize UI components in real-time. TailoredUI provides an instant preview of your changes, ensuring a seamless and efficient customization experience.",
   },
   {
     title: "Flexible Styling with Tailwind",
-    desc: "Harness the power of Tailwind CSS to style your components with ease. TailorUI seamlessly integrates with Tailwind, giving you full control over the look and feel of your UI.",
+    desc: "Harness the power of Tailwind CSS to style your components with ease. TailoredUI seamlessly integrates with Tailwind, giving you full control over the look and feel of your UI.",
   },
   {
     title: "Code Export",
-    desc: "Once you've perfected your design, TailorUI allows you to export the generated code, making it simple to integrate the customized components directly into your project.",
+    desc: "Once you've perfected your design, TailoredUI allows you to export the generated code, making it simple to integrate the customized components directly into your project.",
   },
   {
     title: "Component Library",
-    desc: "Explore a rich library of pre-built components, ready to be customized and integrated into your projects. TailorUI provides a diverse range of UI elements to streamline your development.",
+    desc: "Explore a rich library of pre-built components, ready to be customized and integrated into your projects. TailoredUI provides a diverse range of UI elements to streamline your development.",
   },
   {
     title: "Responsive Design",
-    desc: "Ensure a consistent and appealing user experience across devices. TailorUI's responsive design features enable you to tailor your components for various screen sizes effortlessly.",
+    desc: "Ensure a consistent and appealing user experience across devices. TailoredUI's responsive design features enable you to tailor your components for various screen sizes effortlessly.",
   },
   {
     title: "Intuitive Drag-and-Drop",
-    desc: "Experience a user-friendly workflow with intuitive drag-and-drop functionality. TailorUI makes it easy to rearrange and customize components within your layout.",
+    desc: "Experience a user-friendly workflow with intuitive drag-and-drop functionality. TailoredUI makes it easy to rearrange and customize components within your layout.",
   },
 ];
 
