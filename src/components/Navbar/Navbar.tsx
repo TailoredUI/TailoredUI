@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+
 import Modal from "react-modal";
+import { easeOut, motion } from "framer-motion";
 
 const Navbar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
@@ -9,7 +11,11 @@ const Navbar = () => {
     setIsSearchVisible(!isSearchVisible);
   };
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.0, ease: easeOut }}
+    >
       <nav className="bg-gradient-to-r from-slate-600 to-transparent p-4 absolute top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[95%] xl:w-[75%] z-10 rounded-lg backdrop-blur-sm">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -28,7 +34,7 @@ const Navbar = () => {
               />
             </svg>
 
-            <span className="text-white text-lg font-bold">TailorUI</span>
+            <span className="text-white text-lg font-bold">TailoredUI</span>
           </div>
 
           <div className="hidden md:flex space-x-4">
@@ -72,11 +78,11 @@ const Navbar = () => {
                 height="24"
                 viewBox="0 0 24 24"
                 stroke-width="2"
-                stroke="currentColor"
+                stroke="black"
                 fill="none"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                className="w-8 h-8 cursor-pointer bg-gray-800 rounded-full p-1"
+                className="w-8 h-8 cursor-pointer bg-white rounded-full p-1"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
@@ -135,7 +141,7 @@ const Navbar = () => {
           </svg>
         </div>
       </Modal>
-    </>
+    </motion.div>
   );
 };
 

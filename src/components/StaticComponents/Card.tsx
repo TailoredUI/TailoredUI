@@ -2,7 +2,7 @@ import card from "../../assets/images/static-component-images/card.jpg";
 
 const Card = () => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-soft w-[15rem] xs:w-[20rem] text-center absolute top-[12rem] right-4 z-10">
+    <div className="bg-white p-4 rounded-lg shadow-soft w-[15rem] xs:w-[20rem] text-center absolute top-40 sm:top-[12rem] right-4 z-10">
       <img
         src={card}
         alt="Card Image"

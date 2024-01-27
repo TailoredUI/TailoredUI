@@ -5,12 +5,12 @@ import StaticComponent from "../components/Home/StaticComponent";
 
 const Home = () => {
   return (
-    <>
+    <main>
       <HeroSection />
-      <StaticComponent />
+      {/* <StaticComponent /> */}
       <FeatureSection />
       <Footer />
-    </>
+    </main>
   );
 };
 

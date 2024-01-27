@@ -1,18 +1,18 @@
 import Accordian from "../StaticComponents/Accordian";
-import Avatar from "../StaticComponents/Avator";
+import Avatar from "../StaticComponents/Avatar";
 import Button from "../StaticComponents/Button";
 import Card from "../StaticComponents/Card";
 import Hr from "../StaticComponents/Hr";
 import Navbar from "../StaticComponents/Navbar";
 import Radio from "../StaticComponents/Radio";
-import uiImage from "../../assets/images/coreui-components.png";
-import dashImage from "../../assets/images/dashboard-components.png";
+// import uiImage from "../../assets/images/coreui-components.png";
+// import dashImage from "../../assets/images/dashboard-components.png";
 import StaticUIImage from "../../assets/images/StaticUIImage";
 import Pagination from "../StaticComponents/Pagination";
 
 const StaticComponent = () => (
   <div className="w-full h-[40rem] sm:h-[70vh] relative z-0 flex gap-4 justify-end">
-    <div className="hidden lg:flex sm:w-1/3 h-full ml-4 2xl:mx-32 rounded-lg text-gray-500 flex-col items-center justify-between p-2 overflow-hidden">
+    {/* <div className="hidden lg:flex sm:w-1/3 h-full ml-4 2xl:mx-32 rounded-lg text-gray-500 flex-col items-center justify-between p-2 overflow-hidden">
       <div className="rounded-lg flex flex-col gap-2">
         <div>
           <img
@@ -37,7 +37,7 @@ const StaticComponent = () => (
           DASHBOARD COMPONENTS
         </div>
       </div>
-    </div>
+    </div> */}
     <div className="rounded-lg bg-[#FFFFFF1F] w-full sm:w-[80%] xl:w-full mx-2">
       <Navbar />
       <Accordian />

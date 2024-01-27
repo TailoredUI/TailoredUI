@@ -8,49 +8,32 @@ const Accordian = () => {
       onClick={() => setIsOpen((state) => !state)}
     >
       <div className="flex justify-between">
-        <span>
-          {isOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="gray"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m4.5 15.75 7.5-7.5 7.5 7.5"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="gray"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
-              />
-            </svg>
-          )}
-        </span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="gray"
+          className={`w-6 h-6 ${isOpen ? "rotate-180" : ""}`}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m4.5 15.75 7.5-7.5 7.5 7.5"
+          />
+        </svg>
       </div>
       <div className="flex flex-col">
         <h3 className="text-gray-500 max-w-[25rem] font-semibold text-sm sm:text-lg text-ellipsis">
           Lorem ipsum dolor sit
         </h3>
-        {isOpen && (
-          <div className="text-gray-500 w- max-w-[25rem] text-ellipsis sm:text-justify text-sm sm:text-md">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-          </div>
-        )}
+        <div
+          className={`text-gray-500 w- max-w-[25rem] text-ellipsis sm:text-justify text-sm sm:text-md ${
+            isOpen ? "block" : "hidden"
+          }`}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </div>
       </div>
     </div>
   );

@@ -4,10 +4,10 @@ const Footer = () => {
   return (
     <footer className="text-white py-16 px-8 w-full h-[15rem] relative flex items-center">
       <div className="container mx-auto flex justify-between items-center">
-        <p>&copy; 2023 TailorUI. All rights reserved.</p>
+        <p>&copy; 2023 TailoredUI. All rights reserved.</p>
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/TailoredUI/TailorUI"
+            href="https://github.com/TailoredUI/TailoredUI"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -28,7 +28,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://github.com/TailoredUI/TailorUI/blob/main/LICENSE"
+            href="https://github.com/TailoredUI/TailoredUI/blob/main/LICENSE"
             target="_blank"
             rel="noopener noreferrer"
           >

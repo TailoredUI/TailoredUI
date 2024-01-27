@@ -28,7 +28,7 @@ const Navbar = () => {
               />
             </svg>
 
-            <span className="text-white text-lg font-bold">TailorUI</span>
+            <span className="text-white text-lg font-bold">TailoredUI</span>
           </div>
 
           <div className="hidden md:flex space-x-4">
