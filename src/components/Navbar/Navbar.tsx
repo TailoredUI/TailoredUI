@@ -1,15 +1,42 @@
-import { useState } from 'react'
+import { useState, useEffect, ChangeEventHandler } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import Modal from 'react-modal'
 import { easeOut, motion } from 'framer-motion'
+import { componentsList } from '../../utils/constant/values'
+import { Component } from '../../utils/types/types'
 
 const Navbar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false)
+  const [searchedValue, setSearchedValue] = useState<string>('')
+  const [results, setResults] = useState<Component[]>([])
+
+  useEffect(() => {
+    if (searchedValue != '') {
+      const filteredResults = componentsList.filter((component) =>
+        component.name.toLowerCase().includes(searchedValue.toLowerCase())
+      )
+      setResults(filteredResults)
+    } else {
+      setResults([])
+    }
+  }, [searchedValue])
+
+  const handleSearch: ChangeEventHandler<HTMLInputElement> = (event) => {
+    setSearchedValue(event.target.value)
+  }
 
   const handleSearchIconClick = () => {
     setIsSearchVisible(!isSearchVisible)
   }
+
+  useEffect(() => {
+    if (isSearchVisible) {
+      document.documentElement.style.overflow = 'hidden'
+    } else {
+      document.documentElement.style.overflow = 'auto'
+    }
+  }, [isSearchVisible])
 
   return (
     <motion.div
@@ -17,7 +44,7 @@ const Navbar = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.0, ease: easeOut }}
     >
-      <nav className="absolute left-1/2 top-4 z-10 w-[90%] -translate-x-1/2 rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]">
+      <nav className="relative left-1/2 top-4 z-10 w-[90%] -translate-x-1/2 rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <svg
@@ -117,14 +144,18 @@ const Navbar = () => {
       <Modal
         isOpen={isSearchVisible}
         onRequestClose={() => setIsSearchVisible(false)}
-        className="m-auto w-min translate-y-16 shadow-md"
+        className="m-auto w-min translate-y-16 shadow-md outline-none"
         overlayClassName="bg-[#FFFFFF2A] w-screen h-screen absolute top-0 z-50 backdrop-blur-sm"
       >
         <div className="relative flex">
           <input
             type="text"
-            className="m-auto rounded-md border-none p-4 pr-10 text-black outline-none focus:border-none focus:outline-none"
+            className={`m-auto w-[18rem] border-none p-4 pr-10 text-black outline-none focus:border-none focus:outline-none  xs:w-min ${
+              results.length > 0 ? 'rounded-t-md' : 'rounded-md'
+            }`}
             placeholder="Search something..."
+            value={searchedValue}
+            onChange={handleSearch}
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -141,6 +172,28 @@ const Navbar = () => {
             />
           </svg>
         </div>
+        {results.length > 0 && (
+          <motion.ul
+            initial={{ opacity: 0, y: '-10%' }}
+            animate={{ opacity: 1, y: '0' }}
+            transition={{ duration: 0.3, ease: easeOut }}
+            className="max-h-[20rem] divide-y divide-slate-200 overflow-y-auto rounded-b-md border-t border-slate-200 bg-current text-sm leading-6 xs:max-h-[25rem]"
+          >
+            {results.map((component, index) => (
+              <motion.li
+                key={index}
+                className="flex items-center justify-between p-4"
+              >
+                <span className="whitespace-nowrap font-semibold text-slate-900">
+                  {component.name}
+                </span>
+                <span className="ml-4 text-right text-xs text-slate-600">
+                  {component.path}
+                </span>
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
       </Modal>
     </motion.div>
   )
