@@ -29,13 +29,13 @@ const FeatureSection = () => {
   const isCardContainerInView = useInView(cardContainerRef, { once: true })
 
   return (
-    <div className="relative">
+    <section className="relative">
       {/* <div className="bg-slate-400 h-16 w-full absolute left-0" /> */}
-      <div className="mx-4 mb-16 mt-44 h-max overflow-hidden xs:mt-28 sm:mx-8 sm:mt-52 lg:mt-0 xl:mx-64">
+      <div className="mx-4 mb-16 h-max overflow-hidden sm:mx-8 xl:mx-64">
         <div className="mb-16 flex flex-col items-center text-center">
           <h1
             ref={titleRef}
-            className={`my-8 text-2xl font-bold uppercase transition-all duration-[800ms] ease-[cubic-bezier(.41,.15,.68,1.2)] sm:text-5xl ${
+            className={`my-8 mt-16 text-2xl font-bold uppercase transition-all duration-[800ms] ease-[cubic-bezier(.41,.15,.68,1.2)] xs:mt-0 sm:mt-20 sm:text-5xl md:mt-0 ${
               isInView
                 ? 'translate-y-0 opacity-100'
                 : 'translate-y-24 opacity-0'
@@ -105,7 +105,7 @@ const FeatureSection = () => {
         </motion.div>
         {/* <FeatureImage className="absolute top-0 right-0 h-[100vh] 2xl:w-[105dvw] opacity-50 -z-10 rotate-180 hidden sm:block" /> */}
       </div>
-    </div>
+    </section>
   )
 }
 
