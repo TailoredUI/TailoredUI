@@ -1,0 +1,31 @@
+name: Auto Label Issues
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Issue Title
+        run: |
+          title=$(curl -sL "${{ github.event.issue.url }}" | jq -r '.title')
+
+          if [[ $title == *"Feature Request"* ]]; then
+            echo "Issue title contains 'Feature Request'. Adding label."
+            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Accept: application/vnd.github.v3+json" \
+                 https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/labels \
+                 -d '["feature-request"]'
+          elif [[ $title == *"Bug Report"* ]]; then
+            echo "Issue title contains 'Bug Report'. Adding label."
+            curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                 -H "Accept: application/vnd.github.v3+json" \
+                 https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/labels \
+                 -d '["bug"]'
+          else
+            echo "Issue title doesn't contain keywords. No label added."
+          fi
