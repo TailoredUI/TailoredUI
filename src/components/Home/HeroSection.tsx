@@ -48,8 +48,8 @@ const HeroSection = () => {
           </div>
           <div className="mt-8 flex justify-center gap-4 sm:justify-normal">
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              initial={{ scale: 0, opacity: 0, rotate: -180 }}
+              animate={{ scale: 1, opacity: 1, rotate: 0 }}
               transition={{ duration: 0.7, ease: easeOut, delay: 1.2 }}
               className="h-12 w-12 rounded-full bg-white p-2"
             >
