@@ -44,7 +44,7 @@ const Navbar = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.0, ease: easeOut }}
     >
-      <nav className="relative left-1/2 top-4 z-10 w-[90%] -translate-x-1/2 rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]">
+      <nav className="relative z-10 m-auto my-4 w-[90%] rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <svg

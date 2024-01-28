@@ -9,7 +9,7 @@ const featureContent: { title: string; desc: string }[] = [
   },
   {
     title: 'Code Export',
-    desc: 'Once you\'ve perfected your design, TailoredUI allows you to export the generated code, making it simple to integrate the customized components directly into your project.',
+    desc: `Once you've perfected your design, TailoredUI allows you to export the generated code, making it simple to integrate the customized components directly into your project.`,
   },
   {
     title: 'Component Library',
@@ -17,7 +17,7 @@ const featureContent: { title: string; desc: string }[] = [
   },
   {
     title: 'Responsive Design',
-    desc: 'Ensure a consistent and appealing user experience across devices. TailoredUI\'s responsive design features enable you to tailor your components for various screen sizes effortlessly.',
+    desc: `Ensure a consistent and appealing user experience across devices. TailoredUI's responsive design features enable you to tailor your components for various screen sizes effortlessly.`,
   },
   {
     title: 'Intuitive Drag-and-Drop',

@@ -16,7 +16,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier", "tailwindcss"],
   "rules": {
-    "quotes": ["error", "single"],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
     "indent": ["error", 2],
     "no-console": "error",
     "@typescript-eslint/no-explicit-any": "error",
