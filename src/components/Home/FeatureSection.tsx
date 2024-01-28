@@ -66,22 +66,22 @@ const FeatureSection = () => {
               className={`transition-all duration-[1500ms] ease-out delay-500 ${
                 isCardContainerInView
                   ? index % 2 === 0
-                    ? "opacity-100 md:translate-x-0"
-                    : "opacity-100"
+                    ? "opacity-100 translate-x-0 md:translate-x-0"
+                    : "opacity-100 translate-x-0"
                   : index % 2 === 0
-                  ? "opacity-0 md:-translate-x-full"
-                  : "opacity-0 md:translate-x-full"
+                  ? "opacity-0 -translate-x-full md:-translate-x-full"
+                  : "opacity-0 translate-x-full md:translate-x-full"
               } ${
                 !isCardContainerInView
-                  ? (index === 0 && "-translate-x-full xl:-translate-y-full") ||
-                    (index === 1 && "translate-x-full xl:-translate-y-full") ||
+                  ? (index === 0 && " 2xl:-translate-y-full") ||
+                    (index === 1 && "2xl:-translate-y-full") ||
                     (index === 2 &&
-                      "xl:translate-x-full xl:-translate-y-full") ||
+                      "2xl:translate-x-full 2xl:-translate-y-full") ||
                     (index === 3 &&
-                      "xl:-translate-x-full xl:translate-y-full") ||
-                    (index === 4 && "xl:translate-y-full") ||
-                    (index === 5 && "xl:translate-y-full xl:translate-x-full")
-                  : "xl:translate-x-0 xl:translate-y-0 opacity-100"
+                      "2xl:-translate-x-full 2xl:translate-y-full") ||
+                    (index === 4 && "2xl:translate-y-full") ||
+                    (index === 5 && "2xl:translate-y-full 2xl:translate-x-full")
+                  : "2xl:translate-x-0 2xl:translate-y-0 opacity-100"
               }`}
             >
               {featureIcons[index]}
