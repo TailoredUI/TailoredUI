@@ -1,9 +1,9 @@
 const Button = () => {
   return (
-    <button className="bg-blue-400 hover:bg-gray-200 focus:bg-white focus:hover:bg-none focus:text-gray-500 font-semibold rounded-md border-none outline-none px-8 py-4 text-white absolute top-72 sm:top-60 right-[15rem] xs:right-[20rem] sm:right-96 shadow-thin rotate-90 sm:rotate-0 z-10">
+    <button className="absolute right-[15rem] top-72 z-10 rotate-90 rounded-md border-none bg-blue-400 px-8 py-4 font-semibold text-white shadow-thin outline-none hover:bg-gray-200 focus:bg-white focus:text-gray-500 focus:hover:bg-none xs:right-[20rem] sm:right-96 sm:top-60 sm:rotate-0">
       Button
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

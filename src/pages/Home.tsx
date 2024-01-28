@@ -1,6 +1,6 @@
-import FeatureSection from "../components/Home/FeatureSection";
-import Footer from "../components/Home/FooterSection";
-import HeroSection from "../components/Home/HeroSection";
+import FeatureSection from '../components/Home/FeatureSection'
+import Footer from '../components/Home/FooterSection'
+import HeroSection from '../components/Home/HeroSection'
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
       <FeatureSection />
       <Footer />
     </main>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 const Accordian = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true)
+
   return (
     <div
-      className="w-[17rem] xs:w-[25rem] sm:w-max md:min-w-[32rem] bg-white rounded-md px-2 sm:px-8 py-4 flex items-start gap-4 absolute top-16 sm:top-24 right-4 cursor-pointer z-10 shadow-thin"
+      className="absolute right-4 top-16 z-10 flex w-[17rem] cursor-pointer items-start gap-4 rounded-md bg-white px-2 py-4 shadow-thin xs:w-[25rem] sm:top-24 sm:w-max sm:px-8 md:min-w-[32rem]"
       onClick={() => setIsOpen((state) => !state)}
     >
       <div className="flex justify-between">
@@ -14,7 +15,7 @@ const Accordian = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="gray"
-          className={`w-6 h-6 ${isOpen ? "rotate-180" : ""}`}
+          className={`h-6 w-6 ${isOpen ? 'rotate-180' : ''}`}
         >
           <path
             strokeLinecap="round"
@@ -24,19 +25,19 @@ const Accordian = () => {
         </svg>
       </div>
       <div className="flex flex-col">
-        <h3 className="text-gray-500 max-w-[25rem] font-semibold text-sm sm:text-lg text-ellipsis">
+        <h3 className="max-w-[25rem] text-ellipsis text-sm font-semibold text-gray-500 sm:text-lg">
           Lorem ipsum dolor sit
         </h3>
         <div
-          className={`text-gray-500 w- max-w-[25rem] text-ellipsis sm:text-justify text-sm sm:text-md ${
-            isOpen ? "block" : "hidden"
+          className={`w- sm:text-md max-w-[25rem] text-ellipsis text-sm text-gray-500 sm:text-justify ${
+            isOpen ? 'block' : 'hidden'
           }`}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Accordian;
+export default Accordian

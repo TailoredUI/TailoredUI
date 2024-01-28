@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 const Button2: React.FC = () => {
   return (
-    <button className="bg-green-500 text-white px-4 py-2 rounded">
+    <button className="rounded bg-green-500 px-4 py-2 text-white">
       Button2
     </button>
-  );
-};
+  )
+}
 
-export default Button2;
+export default Button2

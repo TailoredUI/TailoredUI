@@ -1,29 +1,30 @@
-import { useState } from "react";
-import avatar from "../../assets/images/avatar.jpeg";
+import { useState } from 'react'
+import avatar from '../../assets/images/avatar.jpeg'
 
 const Avatar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true)
+
   return (
     <div
-      className="absolute top-[37rem] sm:top-[30rem] right-[18.5rem] xs:right-[23.7rem] sm:right-[26rem] w-max p-2 flex gap-2 items-center font-semibold rounded-full shadow-thin cursor-pointer bg-white z-10"
+      className="absolute right-[18.5rem] top-[37rem] z-10 flex w-max cursor-pointer items-center gap-2 rounded-full bg-white p-2 font-semibold shadow-thin xs:right-[23.7rem] sm:right-[26rem] sm:top-[30rem]"
       onClick={() => setIsOpen((state) => !state)}
     >
-      <div className="border-[4px] border-gray-500 rounded-full">
+      <div className="rounded-full border-[4px] border-gray-500">
         <img
           src={avatar}
           alt="avator image"
-          className="rounded-full w-12 h-12"
+          className="h-12 w-12 rounded-full"
         />
       </div>
       <div
-        className={`uppercase text-gray-500 pr-2 transition-all ${
-          isOpen ? "block" : "hidden"
+        className={`pr-2 uppercase text-gray-500 transition-all ${
+          isOpen ? 'block' : 'hidden'
         }`}
       >
         AKASH
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Avatar;
+export default Avatar

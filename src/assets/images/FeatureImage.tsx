@@ -1241,7 +1241,7 @@ const FeatureImage = ({ className }: { className: string }) => {
         ></circle>
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default FeatureImage;
+export default FeatureImage

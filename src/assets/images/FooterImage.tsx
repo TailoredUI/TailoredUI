@@ -8,7 +8,7 @@ const FooterImage = () => {
       width="500"
       height="500"
     >
-      <g stroke-width="4.75" stroke="hsl(261, 60%, 38%)" fill="none">
+      <g strokeWidth="4.75" stroke="hsl(261, 60%, 38%)" fill="none">
         <circle
           r="9.210526315789473"
           cx="0"
@@ -1338,7 +1338,7 @@ const FooterImage = () => {
         ></circle>
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default FooterImage;
+export default FooterImage

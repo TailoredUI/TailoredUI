@@ -1,23 +1,24 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
-import Modal from "react-modal";
-import { easeOut, motion } from "framer-motion";
+import Modal from 'react-modal'
+import { easeOut, motion } from 'framer-motion'
 
 const Navbar = () => {
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [isSearchVisible, setIsSearchVisible] = useState(false)
 
   const handleSearchIconClick = () => {
-    setIsSearchVisible(!isSearchVisible);
-  };
+    setIsSearchVisible(!isSearchVisible)
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.0, ease: easeOut }}
     >
-      <nav className="bg-gradient-to-r from-slate-600 to-transparent p-4 absolute top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[95%] xl:w-[75%] z-10 rounded-lg backdrop-blur-sm">
-        <div className="container mx-auto flex justify-between items-center">
+      <nav className="absolute left-1/2 top-4 z-10 w-[90%] -translate-x-1/2 rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]">
+        <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +26,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="#FFF"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 strokeLinecap="round"
@@ -34,10 +35,10 @@ const Navbar = () => {
               />
             </svg>
 
-            <span className="text-white text-lg font-bold">TailoredUI</span>
+            <span className="text-lg font-bold text-white">TailoredUI</span>
           </div>
 
-          <div className="hidden md:flex space-x-4">
+          <div className="hidden space-x-4 md:flex">
             <NavLink to="/" className="text-white hover:text-gray-300">
               Component
             </NavLink>
@@ -51,7 +52,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-2">
             <span
-              className="text-white mr-4 cursor-pointer"
+              className="mr-4 cursor-pointer text-white"
               onClick={handleSearchIconClick}
             >
               <svg
@@ -60,7 +61,7 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="#FFF"
-                className="w-6 h-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"
@@ -77,19 +78,19 @@ const Navbar = () => {
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                stroke-width="2"
+                strokeWidth="2"
                 stroke="black"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="w-8 h-8 cursor-pointer bg-white rounded-full p-1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-8 w-8 cursor-pointer rounded-full bg-white p-1"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
               </svg>
             </span>
 
-            <button className="bg-blue-500 text-white px-8 py-2 ml-4 rounded-md hidden md:inline-block">
+            <button className="ml-4 hidden rounded-md bg-blue-500 px-8 py-2 text-white md:inline-block">
               Get Started
             </button>
             <div className="md:hidden">
@@ -116,13 +117,13 @@ const Navbar = () => {
       <Modal
         isOpen={isSearchVisible}
         onRequestClose={() => setIsSearchVisible(false)}
-        className="w-min m-auto translate-y-16 shadow-md"
+        className="m-auto w-min translate-y-16 shadow-md"
         overlayClassName="bg-[#FFFFFF2A] w-screen h-screen absolute top-0 z-50 backdrop-blur-sm"
       >
-        <div className="flex relative">
+        <div className="relative flex">
           <input
             type="text"
-            className="rounded-md p-4 border-none outline-none focus:border-none focus:outline-none m-auto pr-10 text-black"
+            className="m-auto rounded-md border-none p-4 pr-10 text-black outline-none focus:border-none focus:outline-none"
             placeholder="Search something..."
           />
           <svg
@@ -131,7 +132,7 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="gray"
-            className="w-6 h-6 absolute top-1/2 -translate-y-1/2 right-2"
+            className="absolute right-2 top-1/2 h-6 w-6 -translate-y-1/2"
           >
             <path
               strokeLinecap="round"
@@ -142,7 +143,7 @@ const Navbar = () => {
         </div>
       </Modal>
     </motion.div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

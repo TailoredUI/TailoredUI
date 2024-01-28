@@ -6,9 +6,9 @@ const StaticUIImage = () => {
       viewBox="0 0 800 800"
       width="400"
       height="400"
-      className="absolute -left-40 -bottom-32 opacity-30 -z-10"
+      className="absolute -bottom-32 -left-40 -z-10 opacity-30"
     >
-      <g stroke-width="3.5" stroke="#7095fc" fill="none">
+      <g strokeWidth="3.5" stroke="#7095fc" fill="none">
         <circle
           r="7.2368421052631575"
           cx="0"
@@ -827,7 +827,7 @@ const StaticUIImage = () => {
         ></circle>
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default StaticUIImage;
+export default StaticUIImage
