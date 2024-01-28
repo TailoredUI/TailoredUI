@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react";
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Home/FooterSection";
+import React, { ReactNode } from 'react'
+import Navbar from '../components/Navbar/Navbar'
+import Footer from '../components/Home/FooterSection'
 
 interface OutletProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const Outlet: React.FC<OutletProps> = ({ children }) => {
@@ -16,7 +16,7 @@ const Outlet: React.FC<OutletProps> = ({ children }) => {
       </main>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Outlet;
+export default Outlet

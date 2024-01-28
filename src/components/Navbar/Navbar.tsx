@@ -1,42 +1,42 @@
-import { useState, useEffect, ChangeEventHandler } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect, ChangeEventHandler } from 'react'
+import { NavLink } from 'react-router-dom'
 
-import Modal from "react-modal";
-import { easeOut, motion } from "framer-motion";
-import { componentsList } from "../../utils/constant/values";
-import { Component } from "../../utils/types/types";
+import Modal from 'react-modal'
+import { easeOut, motion } from 'framer-motion'
+import { componentsList } from '../../utils/constant/values'
+import { Component } from '../../utils/types/types'
 
 const Navbar = () => {
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
-  const [searchedValue, setSearchedValue] = useState<string>("");
-  const [results, setResults] = useState<Component[]>([]);
+  const [isSearchVisible, setIsSearchVisible] = useState(false)
+  const [searchedValue, setSearchedValue] = useState<string>('')
+  const [results, setResults] = useState<Component[]>([])
 
   useEffect(() => {
-    if (searchedValue != "") {
+    if (searchedValue != '') {
       const filteredResults = componentsList.filter((component) =>
         component.name.toLowerCase().includes(searchedValue.toLowerCase())
-      );
-      setResults(filteredResults);
+      )
+      setResults(filteredResults)
     } else {
-      setResults([]);
+      setResults([])
     }
-  }, [searchedValue]);
+  }, [searchedValue])
 
   const handleSearch: ChangeEventHandler<HTMLInputElement> = (event) => {
-    setSearchedValue(event.target.value);
-  };
+    setSearchedValue(event.target.value)
+  }
 
   const handleSearchIconClick = () => {
-    setIsSearchVisible(!isSearchVisible);
-  };
+    setIsSearchVisible(!isSearchVisible)
+  }
 
   useEffect(() => {
     if (isSearchVisible) {
-      document.documentElement.style.overflow = "hidden";
+      document.documentElement.style.overflow = 'hidden'
     } else {
-      document.documentElement.style.overflow = "auto";
+      document.documentElement.style.overflow = 'auto'
     }
-  }, [isSearchVisible]);
+  }, [isSearchVisible])
 
   return (
     <motion.div
@@ -174,8 +174,8 @@ const Navbar = () => {
         </div>
         {results.length > 0 && (
           <motion.ul
-          initial={{ opacity: 0, y: "-10%" }}
-          animate={{ opacity: 1, y: "0" }}
+            initial={{ opacity: 0, y: '-10%' }}
+            animate={{ opacity: 1, y: '0' }}
             transition={{ duration: 0.3, ease: easeOut }}
             className="max-h-[20rem] xs:max-h-[25rem] bg-current divide-y divide-slate-200 overflow-y-auto rounded-b-md border-t border-slate-200 text-sm leading-6"
           >

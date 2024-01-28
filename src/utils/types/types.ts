@@ -1,4 +1,4 @@
 export interface Component {
-    name: string
-    path: string
-  }
+  name: string
+  path: string
+}

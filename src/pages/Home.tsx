@@ -1,5 +1,5 @@
-import FeatureSection from "../components/Home/FeatureSection";
-import HeroSection from "../components/Home/HeroSection";
+import FeatureSection from '../components/Home/FeatureSection'
+import HeroSection from '../components/Home/HeroSection'
 
 const Home = () => {
   return (
@@ -7,7 +7,7 @@ const Home = () => {
       <HeroSection />
       <FeatureSection />
     </>
-  );
-};
+  )
+}
 
 export default Home
