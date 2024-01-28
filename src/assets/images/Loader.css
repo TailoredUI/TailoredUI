@@ -21,6 +21,8 @@
 
 .spin2 {
   transform-origin: center;
-  animation: spin2 1s ease-in-out infinite, spin 1.5s linear infinite;
+  animation:
+    spin2 1s ease-in-out infinite,
+    spin 1.5s linear infinite;
   animation-direction: alternate;
 }

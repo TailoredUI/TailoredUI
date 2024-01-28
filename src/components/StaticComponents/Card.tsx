@@ -1,24 +1,24 @@
-import card from "../../assets/images/static-component-images/card.jpg";
+import card from '../../assets/images/static-component-images/card.jpg'
 
 const Card = () => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-soft w-[15rem] xs:w-[20rem] text-center absolute top-40 sm:top-[12rem] right-4 z-10">
+    <div className="absolute right-4 top-40 z-10 w-[15rem] rounded-lg bg-white p-4 text-center shadow-soft xs:w-[20rem] sm:top-[12rem]">
       <img
         src={card}
         alt="Card Image"
-        className="w-full h-40 object-cover mb-4 rounded-md"
+        className="mb-4 h-40 w-full rounded-md object-cover"
       />
-      <h2 className="text-lg xs:text-xl font-bold mb-2 text-black">
+      <h2 className="mb-2 text-lg font-bold text-black xs:text-xl">
         Card Title
       </h2>
-      <p className="text-gray-600 text-sm sm:text-md">
+      <p className="sm:text-md text-sm text-gray-600">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </p>
-      <button className="mt-4 text-gray-500 px-4 py-2 rounded-md border-2 border-gray-400 text-sm xs:text-md">
+      <button className="xs:text-md mt-4 rounded-md border-2 border-gray-400 px-4 py-2 text-sm text-gray-500">
         View Details
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

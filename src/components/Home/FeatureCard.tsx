@@ -1,8 +1,8 @@
 interface InterfaceFeatureCard {
-  title: string;
-  desc: string;
-  children: React.ReactNode;
-  className?: string;
+  title: string
+  desc: string
+  children: React.ReactNode
+  className?: string
 }
 
 const FeatureCard = ({
@@ -13,13 +13,13 @@ const FeatureCard = ({
 }: InterfaceFeatureCard) => {
   return (
     <div
-      className={`rounded-xl p-8 text-left border hover:bg-[#FFFFFF0B] ${className}`}
+      className={`rounded-xl border p-8 text-left hover:bg-[#FFFFFF0B] ${className}`}
     >
       <div className="mb-3">{children}</div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <h3 className="mb-2 text-xl font-bold">{title}</h3>
       <p>{desc}</p>
     </div>
-  );
-};
+  )
+}
 
-export default FeatureCard;
+export default FeatureCard

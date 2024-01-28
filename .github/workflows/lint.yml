@@ -1,0 +1,35 @@
+name: Lint and Authorization Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-check-modifications:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Check for unauthorized modifications
+        run: |
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -E '^vite\.config\.ts$|^tsconfig\.ts$|^\.github\/|^eslint\.config\.js$'; then
+            echo "Error: Unauthorized modification detected."
+            exit 1
+          fi

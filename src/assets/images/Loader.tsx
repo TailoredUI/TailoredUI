@@ -1,4 +1,4 @@
-import "./Loader.css";
+import './Loader.css'
 
 const Loader = () => {
   return (
@@ -9,13 +9,13 @@ const Loader = () => {
         cy="400"
         fill="none"
         r="200"
-        stroke-width="50"
+        strokeWidth="50"
         stroke="#E387FF"
-        stroke-dasharray="933 1400"
-        stroke-linecap="round"
+        strokeDasharray="933 1400"
+        strokeLinecap="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Loader;
+export default Loader

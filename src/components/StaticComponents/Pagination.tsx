@@ -1,7 +1,7 @@
 const Pagination = ({ className }: { className: string }) => {
   return (
     <div
-      className={`flex justify-between items-center p-2 xs:p-4 w-56 xs:w-72 h-16 rounded-md shadow-thin bg-white z-10 ${className}`}
+      className={`z-10 flex h-16 w-56 items-center justify-between rounded-md bg-white p-2 shadow-thin xs:w-72 xs:p-4 ${className}`}
     >
       <div className="cursor-pointer">
         <svg
@@ -10,7 +10,7 @@ const Pagination = ({ className }: { className: string }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="gray"
-          className="w-6 h-6"
+          className="h-6 w-6"
         >
           <path
             strokeLinecap="round"
@@ -19,17 +19,17 @@ const Pagination = ({ className }: { className: string }) => {
           />
         </svg>
       </div>
-      <div className="text-gray-500 flex gap-1 xs:gap-2 items-center">
-        <span className="size-9 flex items-center justify-center rounded-full hover:bg-[#574497] hover:text-white cursor-pointer">
+      <div className="flex items-center gap-1 text-gray-500 xs:gap-2">
+        <span className="flex size-9 cursor-pointer items-center justify-center rounded-full hover:bg-[#574497] hover:text-white">
           1
         </span>
-        <span className="size-9 flex items-center justify-center rounded-full hover:bg-[#574497] hover:text-white cursor-pointer">
+        <span className="flex size-9 cursor-pointer items-center justify-center rounded-full hover:bg-[#574497] hover:text-white">
           2
         </span>
-        <span className="size-9 flex items-center justify-center rounded-full bg-[#574497] text-white cursor-pointer">
+        <span className="flex size-9 cursor-pointer items-center justify-center rounded-full bg-[#574497] text-white">
           3
         </span>
-        <span className="size-9 flex items-center justify-center rounded-full hover:bg-[#574497] hover:text-white cursor-pointer">
+        <span className="flex size-9 cursor-pointer items-center justify-center rounded-full hover:bg-[#574497] hover:text-white">
           4
         </span>
       </div>
@@ -40,7 +40,7 @@ const Pagination = ({ className }: { className: string }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="gray"
-          className="w-6 h-6"
+          className="h-6 w-6"
         >
           <path
             strokeLinecap="round"
@@ -50,7 +50,7 @@ const Pagination = ({ className }: { className: string }) => {
         </svg>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination
