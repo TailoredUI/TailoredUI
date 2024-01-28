@@ -8,10 +8,10 @@ interface OutletProps {
 
 const Outlet: React.FC<OutletProps> = ({ children }) => {
   return (
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="flex min-h-screen w-full flex-col">
       <Navbar />
 
-      <main className="flex-1 w-full relative overflow-x-hidden">
+      <main className="relative w-full flex-1 overflow-x-hidden">
         {children}
       </main>
       <Footer />

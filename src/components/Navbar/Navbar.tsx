@@ -44,8 +44,8 @@ const Navbar = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.0, ease: easeOut }}
     >
-      <nav className="bg-gradient-to-r from-slate-600 to-transparent p-4 relative top-4 left-1/2 -translate-x-1/2 w-[90%] md:w-[95%] xl:w-[75%] z-10 rounded-lg backdrop-blur-sm">
-        <div className="container mx-auto flex justify-between items-center">
+      <nav className="relative left-1/2 top-4 z-10 w-[90%] -translate-x-1/2 rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]">
+        <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -144,13 +144,13 @@ const Navbar = () => {
       <Modal
         isOpen={isSearchVisible}
         onRequestClose={() => setIsSearchVisible(false)}
-        className="w-min m-auto translate-y-16 shadow-md outline-none"
+        className="m-auto w-min translate-y-16 shadow-md outline-none"
         overlayClassName="bg-[#FFFFFF2A] w-screen h-screen absolute top-0 z-50 backdrop-blur-sm"
       >
         <div className="relative flex">
           <input
             type="text"
-            className={`p-4 border-none outline-none focus:border-none focus:outline-none m-auto pr-10 w-[18rem] xs:w-min  text-black ${
+            className={`m-auto w-[18rem] border-none p-4 pr-10 text-black outline-none focus:border-none focus:outline-none  xs:w-min ${
               results.length > 0 ? 'rounded-t-md' : 'rounded-md'
             }`}
             placeholder="Search something..."
@@ -177,7 +177,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: '-10%' }}
             animate={{ opacity: 1, y: '0' }}
             transition={{ duration: 0.3, ease: easeOut }}
-            className="max-h-[20rem] xs:max-h-[25rem] bg-current divide-y divide-slate-200 overflow-y-auto rounded-b-md border-t border-slate-200 text-sm leading-6"
+            className="max-h-[20rem] divide-y divide-slate-200 overflow-y-auto rounded-b-md border-t border-slate-200 bg-current text-sm leading-6 xs:max-h-[25rem]"
           >
             {results.map((component, index) => (
               <motion.li

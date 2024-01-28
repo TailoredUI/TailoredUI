@@ -11,7 +11,7 @@ const HeroSection = () => {
       {/* <HeroImage className="absolute bottom-0 right-0 h-full opacity-30 lg:w-full lg:h-max sm:opacity-100" /> */}
       {/* <FeatureImage className="absolute -top-44 right-0 h-[100vh] w-full object-cover -z-10 opacity-100 rotate-180 hidden sm:block" /> */}
 
-      <div className="mt-[9rem] xs:mt-[4.7rem] sm:mt-[10.5rem] mx-4 sm:mx-8 xl:mx-64 mb-16 md:mb-0 z-0 overflow-hidden">
+      <div className="z-0 mx-4 mb-16 mt-[9rem] overflow-hidden xs:mt-[4.7rem] sm:mx-8 sm:mt-[10.5rem] md:mb-0 xl:mx-64">
         <motion.div
           initial={{ opacity: 0, x: '-100%' }}
           animate={{ opacity: 1, x: '0' }}
