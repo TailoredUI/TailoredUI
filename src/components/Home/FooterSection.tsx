@@ -3,9 +3,9 @@ import FooterImage from '../../assets/images/FooterImage'
 const Footer = () => {
   return (
     <footer className="relative flex h-[15rem] w-full items-center px-8 py-16 text-white">
-      <div className="container mx-auto flex items-center justify-between">
-        <p>&copy; 2023 TailoredUI. All rights reserved.</p>
-        <div className="flex items-center gap-4">
+      <div className="container mx-auto flex flex-col xs:flex-row justify-between items-center text-balance">
+        <p className='text-center'>&copy; 2023 TailoredUI. All rights reserved.</p>
+        <div className="flex flex-col xs:flex-row items-center gap-4 mt-4 xs:mt-0">
           <a
             href="https://github.com/TailoredUI/TailoredUI"
             target="_blank"
