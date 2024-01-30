@@ -146,7 +146,7 @@ const Navbar = () => {
           <input
             type="text"
             className={`m-auto w-[18rem] border-none p-4 pr-10 text-black outline-none focus:border-none focus:outline-none  xs:w-min ${
-              results.length > 0 ? 'rounded-t-md' : 'rounded-md'
+              searchedValue ? 'rounded-t-md' : 'rounded-md'
             }`}
             autoFocus={true}
             placeholder="Search something..."
@@ -168,7 +168,20 @@ const Navbar = () => {
             />
           </svg>
         </div>
-        {results.length > 0 && (
+        {results.length === 0 ? (
+          searchedValue && (
+            <motion.li
+              initial={{ opacity: 0, y: '-10%' }}
+              animate={{ opacity: 1, y: '0' }}
+              transition={{ duration: 0.3, ease: easeOut }}
+              className="flex items-center justify-between divide-y divide-slate-200 overflow-y-auto rounded-b-md border-t border-slate-200 bg-current p-4"
+            >
+              <span className="whitespace-nowrap font-semibold text-slate-900">
+                No Results Found
+              </span>
+            </motion.li>
+          )
+        ) : (
           <motion.ul
             initial={{ opacity: 0, y: '-10%' }}
             animate={{ opacity: 1, y: '0' }}
