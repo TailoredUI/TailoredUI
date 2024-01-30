@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Outlet from './Outlet'
+import NotFound from './pages/NotFound'
 
 const Template = () => <div>Template Page</div>
 const Docs = () => <div>Docs Page</div>
@@ -11,8 +12,9 @@ const App = () => {
       <Outlet>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/template" element={<Template />} />
+          <Route path="/collections/*" element={<Template />} />
           <Route path="/docs" element={<Docs />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </Outlet>
     </Router>
