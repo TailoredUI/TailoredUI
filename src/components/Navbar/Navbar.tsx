@@ -35,6 +35,8 @@ const Navbar = () => {
       document.documentElement.style.overflow = 'hidden'
     } else {
       document.documentElement.style.overflow = 'auto'
+      setResults([])
+      setSearchedValue('')
     }
   }, [isSearchVisible])
 
@@ -153,6 +155,7 @@ const Navbar = () => {
             className={`m-auto w-[18rem] border-none p-4 pr-10 text-black outline-none focus:border-none focus:outline-none  xs:w-min ${
               results.length > 0 ? 'rounded-t-md' : 'rounded-md'
             }`}
+            autoFocus={true}
             placeholder="Search something..."
             value={searchedValue}
             onChange={handleSearch}
