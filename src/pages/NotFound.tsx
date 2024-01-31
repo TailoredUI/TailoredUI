@@ -51,6 +51,7 @@ function NotFound() {
                       <div className="flex h-6 w-[9.3rem] translate-y-[3px] justify-center rounded-[50%] bg-[#2E2871]">
                         <div className="flex h-3 w-[7.5rem] translate-y-2 justify-center rounded-[50%] bg-[#18E1E8]">
                           <div className="relative h-2 w-[6rem] translate-y-0 rounded-[50%] bg-white">
+                            <div className="absolute -top-7 h-10 w-10 rounded-full bg-[#18E1E8] blur-lg" />
                             <div className="absolute -top-7 left-1/2 h-20 w-20 -translate-x-1/2 rounded-full bg-white opacity-60 blur-xl" />
                             <div className="absolute left-1/2 top-4 h-32 w-28 -translate-x-1/2 animate-pulse bg-gradient-to-b from-white to-yellow-400 opacity-50 blur-2xl" />
                           </div>
