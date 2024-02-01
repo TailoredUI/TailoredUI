@@ -14,7 +14,7 @@ const HeroSection = () => {
       {/* <div className="z-0 mx-4 mb-16 mt-[9rem] overflow-hidden xs:mt-[4.7rem] sm:mx-8 sm:mt-[10rem] md:mb-0 xl:mx-64"> */}
 
       <motion.div
-        className="z-0 mx-4 mb-0 mt-0 overflow-hidden sm:mx-8 md:mb-0 xl:mx-64"
+        className="z-0 mb-0 mt-0 overflow-hidden md:mb-0"
         initial={{ opacity: 0, x: '-100%' }}
         animate={{ opacity: 1, x: '0' }}
         transition={{ duration: 0.7, ease: easeOut, delay: 0.5 }}

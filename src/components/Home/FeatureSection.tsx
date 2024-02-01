@@ -31,7 +31,7 @@ const FeatureSection = () => {
   return (
     <section className="relative">
       {/* <div className="bg-slate-400 h-16 w-full absolute left-0" /> */}
-      <div className="mx-4 mb-16 h-max overflow-hidden sm:mx-8 xl:mx-64">
+      <div className="mb-16 h-max overflow-hidden">
         <div className="mb-16 flex flex-col items-center text-center">
           <h1
             ref={titleRef}

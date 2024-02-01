@@ -11,7 +11,9 @@ const Outlet: React.FC<OutletProps> = ({ children }) => {
     <div className="flex w-full flex-col">
       <Navbar />
 
-      <main className="relative w-full overflow-x-hidden">{children}</main>
+      <main className="relative mx-4 min-h-[calc(100vh-6rem)] overflow-x-hidden sm:mx-8 xl:mx-64">
+        {children}
+      </main>
       <Footer />
     </div>
   )
