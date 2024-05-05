@@ -2,7 +2,7 @@
 
 TailoredUI is an open-source React component library with Tailwind CSS styling, designed to empower developers with customizable and versatile UI components. Tailor your web applications with ease, choosing from a rich set of components that seamlessly integrate into your React projects.
 
-![TailoredUI Preview](url-to-image)
+[TailoredUI](https://tailoredui.netlify.app/)
 
 ## Features
 
@@ -13,7 +13,7 @@ TailoredUI is an open-source React component library with Tailwind CSS styling, 
 
 ## Getting Started 🚀
 
-1. Explore the [Component List](#) to discover the available UI components.
+1. Explore the [Component List](https://tailoredui.netlify.app/collections) to discover the available UI components.
 2. Dive into the [Documentation](#) for in-depth guidance on customization and integration.
 
 ## Contribution Guidelines 🤝
