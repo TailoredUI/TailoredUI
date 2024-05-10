@@ -9,17 +9,21 @@ git clone https://github.com/your-username/TailoredUI.git
 ```bash
 git checkout -b issue-branch-name
 ```
-3. Make your changes and commit them:
+3. Make sure to take a pull from the develop branch to get the latest changes:
+```bash
+git pull upstream develop
+```
+4. Make your changes and commit them:
 ```bash
 git add .
 git commit -m "Add your commit message here"
 ```
-4. Push the changes to your fork:
+5. Push the changes to your fork:
 ```bash
 git push origin issue-branch-name
 ```
-5. Open a pull request to the `develop` branch on the official TailoredUI repository.
-6. Your pull request will be reviewed by the maintainers. Please be patient, and feel free to address any feedback.
+6. Open a pull request to the `develop` branch on the official TailoredUI repository.
+7. Your pull request will be reviewed by the maintainers. Please be patient, and feel free to address any feedback.
 ## Code Style
 - Follow the existing code style and structure.
 - Write meaningful commit messages.
@@ -30,12 +34,13 @@ If you encounter any issues or have suggestions, please open an issue on the [is
 - Follow the issue template provided. Your issue will be closed if it does not adhere to the template.
 - State clearly how/what you are proposing as a solution for an issue.
 - Provide relevant screenshots, videos, or references for any issue you are raising whenever possible.
+- If your issue or feature is to implement something new, provide a relevant design for your proposed solution and ask for it to be reviewed first (if a design is already present, follow the given design).
+- We cannot allow one person to take all the issues. We want to give a fair chance to everyone, so there will be a limit to the number of issues you are assigned at a time.
 ## Pull Request Process
 - You are not supposed to make pull requests against the `main` branch. Any pull requests made to the `main` branch will be closed.
 - For pull requests, follow the pull request template provided. Your pull request will be closed if it doesn't adhere to the template.
+- If there are any conflicts in your pull request, they won't be reviewed unless they are resolved.
 - Close the issue or ask it to be closed once your pull request has been successfully merged.
-- We cannot allow one person to take all the issues. We want to give a fair chance to everyone, so there will be a limit to the number of issues you are assigned at a time.
-- If your issue or feature is to implement something new, provide a relevant design for your proposed solution and ask for it to be reviewed first (if a design is already present, follow the given design).
 ## License
 By contributing to TailoredUI, you agree that your contributions will be licensed under the [MIT License](LICENSE).
 Thank you for your contribution!
