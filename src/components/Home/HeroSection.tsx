@@ -36,17 +36,16 @@ const HeroSection = () => {
           Ready to tailor your web experience? Let&apos;s start crafting!
         </h4>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <button
-            className="z-10 min-w-[12rem] rounded-md bg-blue-500 px-4 py-2"
-            // onClick={() =>
-            //   alert(`${window.screen.width} ${window.screen.height}`)
-            // }
-          >
-            Explore Components
-          </button>
-          <button className="z-10 min-w-[12rem] rounded-md border px-4 py-2">
-            Get Started
-          </button>
+          <a href="/components" target='_blank'>
+            <button className="z-10 min-w-[12rem] rounded-md bg-blue-500 px-4 py-2">
+              Explore Components
+            </button>
+          </a>
+          <a href="/docs" target='_blank'>
+            <button className="z-10 min-w-[12rem] rounded-md border px-4 py-2">
+              Get Started
+            </button>
+          </a>
         </div>
         <div className="mt-4 flex justify-center gap-4 xs:mt-8 sm:justify-normal">
           <motion.div
