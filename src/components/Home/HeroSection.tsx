@@ -19,7 +19,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, x: '0' }}
         transition={{ duration: 0.7, ease: easeOut, delay: 0.5 }}
       >
-        <h1 className="mb-4 w-full text-3xl font-bold xs:text-5xl sm:w-[70%] sm:text-[4rem] lg:mt-0">
+        <h1 className="mb-4 w-full text-3xl font-bold xs:text-5xl sm:w-[70%] sm:text-[4rem] lg:mt-0 md:text-3xl lg:text-5xl">
           Craft Tailored UI Experiences Seamlessly!
         </h1>
         <h4 className="text-md mt-8 w-full text-left xs:text-[1.2rem] sm:w-1/2">
