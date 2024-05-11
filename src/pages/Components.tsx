@@ -42,7 +42,6 @@ const Components = () => {
             <Component />
           </Preview>
         ))}
-      {/* <Dummy className='bg-orange-400' /> */}
     </ul>
   )
 }

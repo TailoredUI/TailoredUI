@@ -159,7 +159,6 @@ const Preview: React.FC<InterfacePreviewProps> = ({
           )}
         </div>
       </div>
-      {/* <component /> */}
     </div>
   )
 }

@@ -1,8 +1,7 @@
 import SimpleButton from './SimpleButton/SimpleButton'
-import DummyButton from './DummyButton/DummyButton'
 
-export type ComponentType = typeof SimpleButton | typeof DummyButton
+export type ComponentType = typeof SimpleButton
 
-const componentList: ComponentType[] = [SimpleButton, DummyButton]
+const componentList: ComponentType[] = [SimpleButton]
 
 export default componentList

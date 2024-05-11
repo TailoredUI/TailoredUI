@@ -1,4 +1,4 @@
-import CollectionCard from '../components/Reusable/Resizable/CollectionCard/CollectionCard'
+import CollectionCard from '../components/Reusable/CollectionCard/CollectionCard'
 import buttonImg from '../assets/images/button-collection.png'
 import cardImg from '../assets/images/card-collection.jpg'
 import { useNavigate } from 'react-router-dom'
