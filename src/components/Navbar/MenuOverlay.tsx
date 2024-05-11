@@ -44,7 +44,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-rows-3 md:hidden absolute text-center gap-y-2 z-10 left-0 right-0 mx-auto w-[90%] rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]"
+            className="absolute z-10 left-0 right-0 mx-auto w-[90%] md:w-[95%] xl:w-[75%] grid grid-rows-3 md:hidden text-center gap-y-2 rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm"
           >
             {/* Map through links to create navigation items */}
             {links.map((link, index) => (

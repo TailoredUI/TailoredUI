@@ -137,7 +137,6 @@ const Navbar = () => {
                 <button
                   className="text-white"
                   onClick={() => {
-                    console.log('X mark clicked')
                     setMenuBarOpen(false)
                   }}
                 >
