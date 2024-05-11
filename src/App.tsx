@@ -8,6 +8,7 @@ import Components from './pages/Components'
 import Collections from './pages/Collections'
 
 const Docs = () => <div>Docs Page</div>
+const Components = () => <div>Components Page</div>
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/collections" element={<Collections />} />
           <Route path="/collections/:type" element={<Components />} />
           <Route path="/docs" element={<Docs />} />
+          <Route path="/components" element={<Components />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </Outlet>
