@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 import { selectComponent } from '../../redux/action'
 
 import ResizableDiv from '../../components/Reusable/Resizable/ResizableDiv.tsx'
@@ -18,9 +20,11 @@ const Preview: React.FC<InterfacePreviewProps> = ({
   const [selectedViewport, setSelectedViewport] = useState('xl')
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleClickedCustomization = () => {
     dispatch(selectComponent(pathToConfig))
+    navigate('/editor')
   }
 
   const handlePreviewToggle = (toggle: string) => {
@@ -127,13 +131,13 @@ const Preview: React.FC<InterfacePreviewProps> = ({
             </span>
             <span
               onClick={() => handleViewPortSelection('lg')}
-              className={`hidden h-9 w-10 items-center justify-center rounded-md xl:flex ${selectedViewport === 'lg' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
+              className={`flex h-9 w-10 items-center justify-center rounded-md ${selectedViewport === 'lg' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
             >
               lg
             </span>
             <span
               onClick={() => handleViewPortSelection('xl')}
-              className={`flex h-9 w-10 items-center justify-center rounded-md ${selectedViewport === 'xl' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
+              className={`hidden h-9 w-10 items-center justify-center rounded-md xl:flex ${selectedViewport === 'xl' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
             >
               xl
             </span>
@@ -145,7 +149,7 @@ const Preview: React.FC<InterfacePreviewProps> = ({
             Customize
           </div>
         </div>
-        <div className="rounded-lg bg-white p-1 text-slate-500 xs:p-4">
+        <div className="select-none rounded-lg bg-white p-1 text-slate-500 xs:p-4">
           {toggleView === 'view' ? (
             <ResizableDiv w={getViewportSize(selectedViewport)}>
               {children}

@@ -1,7 +1,7 @@
 import SimpleButton from './SimpleButton/SimpleButton'
 import DummyButton from './DummyButton/DummyButton'
 
-type ComponentType = typeof SimpleButton | typeof DummyButton
+export type ComponentType = typeof SimpleButton | typeof DummyButton
 
 const componentList: ComponentType[] = [SimpleButton, DummyButton]
 

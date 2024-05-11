@@ -2,7 +2,6 @@ import CollectionCard from '../components/Reusable/Resizable/CollectionCard/Coll
 import buttonImg from '../assets/images/button-collection.png'
 import cardImg from '../assets/images/card-collection.jpg'
 import { useNavigate } from 'react-router-dom'
-import TypographyComponent from '../components/Reusable/EditorComponents/Typography/Typography'
 
 const collectionsData = [
   { id: 1, title: 'Buttons', imageSrc: buttonImg },
@@ -48,7 +47,6 @@ const Collections = () => {
           />
         ))}
       </section>
-      <TypographyComponent />
     </>
   )
 }

@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Components from './pages/Components'
 import Collections from './pages/Collections'
+import Editor from './containers/Editor/Editor'
 
 const Docs = () => <div>Docs Page</div>
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/collections" element={<Collections />} />
           <Route path="/collections/:type" element={<Components />} />
           <Route path="/docs" element={<Docs />} />
+          <Route path="/editor" element={<Editor />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </Outlet>

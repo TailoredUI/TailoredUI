@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
 import { useState, useEffect } from 'react'
-import SimpleButton from '../components/collections/buttons/SimpleButton/SimpleButton'
-import Preview from '../containers/Preview/Preview'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/reducer'
+import type { ComponentType } from '../components/collections/buttons'
+import SimpleButton from '../components/collections/buttons/SimpleButton/SimpleButton'
+import Preview from '../containers/Preview/Preview'
 
 const extractLastPart = (path: string) => {
   const parts = path.split('/')
@@ -17,12 +18,12 @@ const Dummy = ({
   collection = 'buttons',
 }: {
   className: string
-  collection: string
+  collection?: string
 }) => {
   const [componentList, setComponentList] = useState<string[]>([])
   const [Component, setComponent] = useState<React.ReactElement<
     any,
-    any
+    ComponentType
   > | null>(null)
   const componentPath = useSelector(
     (state: RootState) => state.component.selectedComponentPath
@@ -45,9 +46,10 @@ const Dummy = ({
   useEffect(() => {
     const getComponentList = async () => {
       const module = await import(
-        `../components/collections/${collection}/index.ts`
+        `../components/collections/${collection}/list.ts`
       )
       const file = module.default
+      console.log(file)
       setComponentList(file)
     }
     if (collection) {
@@ -70,7 +72,9 @@ const Dummy = ({
       <Preview>
         <button className="rounded-md px-4 py-2 shadow-subtle">Button2</button>
       </Preview>
-      {Component && Component}
+      {Component && Component !== null && (
+        <Component.type {...Component.props} className="bg-orange-400" />
+      )}
     </div>
   )
 }

@@ -21,7 +21,6 @@ const Components = () => {
         )
         const listContent = listModule.default
         setComponentList(listContent)
-        throw new Error('test')
       } catch (error: unknown) {
         if (error instanceof Error) {
           // eslint-disable-next-line no-console
@@ -43,6 +42,7 @@ const Components = () => {
             <Component />
           </Preview>
         ))}
+      {/* <Dummy className='bg-orange-400' /> */}
     </ul>
   )
 }

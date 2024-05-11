@@ -22,6 +22,10 @@ export default {
       colors: {
         background: '#111043',
       },
+      backgroundColor: {
+        editorBg: '#343b4d',
+        editorMain: '#1f232e',
+      },
     },
   },
   plugins: [],
