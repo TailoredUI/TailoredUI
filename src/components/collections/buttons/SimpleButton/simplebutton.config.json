@@ -1,0 +1,275 @@
+{
+  "name": "Customizable Button",
+  "options": [
+    {
+      "name": "Text/Label",
+      "type": "text",
+      "default": "Click me",
+      "className": "text-"
+    },
+    {
+      "name": "Color",
+      "type": "group",
+      "options": [
+        {
+          "name": "Background Color",
+          "type": "color",
+          "default": "#3498db",
+          "className": "bg-"
+        },
+        {
+          "name": "Text Color",
+          "type": "color",
+          "default": "#ffffff",
+          "className": "text-"
+        }
+      ]
+    },
+    {
+      "name": "Size",
+      "type": "group",
+      "options": [
+        {
+          "name": "Width",
+          "type": "text",
+          "default": "100px",
+          "className": "w-"
+        },
+        {
+          "name": "Height",
+          "type": "text",
+          "default": "40px",
+          "className": "h-"
+        },
+        {
+          "name": "Padding",
+          "type": "text",
+          "default": "10px",
+          "className": "p-"
+        },
+        {
+          "name": "Margin",
+          "type": "text",
+          "default": "5px",
+          "className": "m-"
+        }
+      ]
+    },
+    {
+      "name": "Typography",
+      "type": "group",
+      "options": [
+        {
+          "name": "Font Family",
+          "type": "text",
+          "default": "Arial, sans-serif",
+          "className": "font-sans"
+        },
+        {
+          "name": "Font Size",
+          "type": "text",
+          "default": "16px",
+          "className": "text-16"
+        },
+        {
+          "name": "Font Weight",
+          "type": "text",
+          "default": "normal",
+          "className": "font-normal"
+        },
+        {
+          "name": "Font Style",
+          "type": "text",
+          "default": "normal",
+          "className": "font-normal"
+        }
+      ]
+    },
+    {
+      "name": "Border",
+      "type": "group",
+      "options": [
+        {
+          "name": "Border Style",
+          "type": "text",
+          "default": "solid",
+          "className": "border-solid"
+        },
+        {
+          "name": "Border Color",
+          "type": "color",
+          "default": "#333333",
+          "className": "border-color-gray"
+        },
+        {
+          "name": "Border Radius",
+          "type": "text",
+          "default": "8px",
+          "className": "rounded-8"
+        }
+      ]
+    },
+    {
+      "name": "Shadow",
+      "type": "group",
+      "options": [
+        {
+          "name": "Shadow Type",
+          "type": "text",
+          "default": "box-shadow",
+          "className": "shadow"
+        },
+        {
+          "name": "Shadow Color",
+          "type": "color",
+          "default": "rgba(0, 0, 0, 0.2)",
+          "className": "shadow-color"
+        },
+        {
+          "name": "Shadow Blur",
+          "type": "text",
+          "default": "5px",
+          "className": "shadow-blur-5"
+        },
+        {
+          "name": "Shadow Offset",
+          "type": "text",
+          "default": "2px 2px",
+          "className": "shadow-offset-2"
+        }
+      ]
+    },
+    {
+      "name": "Hover/Focus Styles",
+      "type": "group",
+      "options": [
+        {
+          "name": "Hover Background Color",
+          "type": "color",
+          "default": "#4682b4",
+          "className": "hover:bg-blue-700"
+        },
+        {
+          "name": "Hover Text Color",
+          "type": "color",
+          "default": "#ffffff",
+          "className": "hover:text-white"
+        },
+        {
+          "name": "Hover Animation",
+          "type": "text",
+          "default": "scale(1.1)",
+          "className": "hover:scale-110"
+        }
+      ]
+    },
+    {
+      "name": "Disabled State",
+      "type": "group",
+      "options": [
+        {
+          "name": "Disabled Background Color",
+          "type": "color",
+          "default": "#d3d3d3",
+          "className": "bg-gray-400"
+        },
+        {
+          "name": "Disabled Text Color",
+          "type": "color",
+          "default": "#808080",
+          "className": "text-gray-600"
+        },
+        {
+          "name": "Disabled Opacity",
+          "type": "text",
+          "default": "0.7",
+          "className": "opacity-70"
+        }
+      ]
+    },
+    {
+      "name": "Icon",
+      "type": "group",
+      "options": [
+        {
+          "name": "Icon Type",
+          "type": "text",
+          "default": "none",
+          "className": "icon-none"
+        },
+        {
+          "name": "Icon Color",
+          "type": "color",
+          "default": "#333333",
+          "className": "text-gray-800"
+        },
+        {
+          "name": "Icon Size",
+          "type": "text",
+          "default": "20px",
+          "className": "text-20"
+        }
+      ]
+    },
+    {
+      "name": "Loading/Spinner",
+      "type": "group",
+      "options": [
+        {
+          "name": "Loading Animation",
+          "type": "text",
+          "default": "spin 1s linear infinite",
+          "className": "animate-spin"
+        },
+        {
+          "name": "Loading Color",
+          "type": "color",
+          "default": "#333333",
+          "className": "text-gray-800"
+        }
+      ]
+    },
+    {
+      "name": "Transitions/Animations",
+      "type": "group",
+      "options": [
+        {
+          "name": "Transition Property",
+          "type": "text",
+          "default": "all",
+          "className": "transition-all"
+        },
+        {
+          "name": "Transition Duration",
+          "type": "text",
+          "default": "0.3s",
+          "className": "duration-300"
+        },
+        {
+          "name": "Transition Timing Function",
+          "type": "text",
+          "default": "ease-in-out",
+          "className": "ease-in-out"
+        }
+      ]
+    },
+    {
+      "name": "Accessibility",
+      "type": "group",
+      "options": [
+        {
+          "name": "ARIA Role",
+          "type": "text",
+          "default": "button",
+          "className": "aria-button"
+        },
+        {
+          "name": "ARIA Label",
+          "type": "text",
+          "default": "Customizable Button",
+          "className": "aria-label"
+        }
+      ]
+    }
+  ]
+}
