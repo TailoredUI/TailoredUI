@@ -6,11 +6,19 @@ import { easeOut, motion } from 'framer-motion'
 import { componentsList } from '../../utils/constant/values'
 import { Component } from '../../utils/types/types'
 import TailoredUIIcon from '../../assets/images/icons/TailoredUI.icon'
+import MenuOverlay from './MenuOverlay.jsx'
+import {
+  HamburgerIcon,
+  CloseIcon,
+} from '../../assets/images/icons/NavBar.icons.js'
 
 const Navbar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false)
   const [searchedValue, setSearchedValue] = useState<string>('')
   const [results, setResults] = useState<Component[]>([])
+
+  // State variables to indicate whether menu bar is open or not
+  const [menuBarOpen, setMenuBarOpen] = useState(false)
 
   useEffect(() => {
     if (searchedValue != '') {
@@ -115,23 +123,27 @@ const Navbar = () => {
             <button className="ml-4 hidden rounded-md bg-blue-500 px-8 py-2 text-white md:inline-block">
               Get Started
             </button>
+
+            {/*Menu for mobile screens*/}
             <div className="md:hidden">
-              <button className="text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  className="h-6 w-6"
+              {!menuBarOpen ? (
+                <button
+                  className="text-white"
+                  onClick={() => setMenuBarOpen(true)}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  ></path>
-                </svg>
-              </button>
+                  <HamburgerIcon />
+                </button>
+              ) : (
+                <button
+                  className="text-white"
+                  onClick={() => {
+                    console.log('X mark clicked')
+                    setMenuBarOpen(false)
+                  }}
+                >
+                  <CloseIcon />
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -204,6 +216,8 @@ const Navbar = () => {
           </motion.ul>
         )}
       </Modal>
+      {/* Menu Overlay Component */}
+      <MenuOverlay menuBarOpen={menuBarOpen} setMenuBarOpen={setMenuBarOpen} />
     </motion.div>
   )
 }
