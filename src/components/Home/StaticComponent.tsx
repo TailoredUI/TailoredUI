@@ -4,7 +4,7 @@ import Button from '../StaticComponents/Button'
 import Card from '../StaticComponents/Card'
 import Hr from '../StaticComponents/Hr'
 import Navbar from '../StaticComponents/Navbar'
-import Radio from '../StaticComponents/Radio'
+import Radio from '../StaticComponents/Toggle'
 // import uiImage from "../../assets/images/coreui-components.png";
 // import dashImage from "../../assets/images/dashboard-components.png";
 import StaticUIImage from '../../assets/images/StaticUIImage'

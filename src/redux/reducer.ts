@@ -6,7 +6,13 @@ import {
   SELECTED_COMPONENT_CONFIG,
   SelectComponentAction,
   SelectedComponentConfigAction,
+  SelectedCollectionAction,
+  SELECTED_COLLECTION,
 } from './types'
+
+export interface CollectionState {
+  selectedCollection: string | null
+}
 
 export interface ComponentState {
   selectedComponentPath: string | null
@@ -17,8 +23,13 @@ export interface ConfigState {
 }
 
 export interface RootState {
+  collection: CollectionState
   component: ComponentState
   config: ConfigState
+}
+
+const initialCollectionState: CollectionState = {
+  selectedCollection: null,
 }
 
 const initialComponentState: ComponentState = {
@@ -27,6 +38,21 @@ const initialComponentState: ComponentState = {
 
 const initialConfigState: ConfigState = {
   selectedComponentConfig: null,
+}
+
+const collectionReducer = (
+  state: CollectionState = initialCollectionState,
+  action: SelectedCollectionAction
+): CollectionState => {
+  switch (action.type) {
+    case SELECTED_COLLECTION:
+      return {
+        ...state,
+        selectedCollection: action.payload,
+      }
+    default:
+      return state
+  }
 }
 
 const componentReducer = (
@@ -60,6 +86,7 @@ const configReducer = (
 }
 
 const rootReducer = combineReducers({
+  collection: collectionReducer,
   component: componentReducer,
   config: configReducer,
 })
