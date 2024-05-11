@@ -15,7 +15,7 @@ const HeroSection = () => {
       {/* <div className="z-0 mx-4 mb-16 mt-[9rem] overflow-hidden xs:mt-[4.7rem] sm:mx-8 sm:mt-[10rem] md:mb-0 xl:mx-64"> */}
 
       <motion.div
-        className="z-0 mb-0 mt-0 overflow-hidden md:mb-0"
+        className="z-0 mt-0 mb-0 overflow-hidden md:mb-0"
         initial={{ opacity: 0, x: '-100%' }}
         animate={{ opacity: 1, x: '0' }}
         transition={{ duration: 0.7, ease: easeOut, delay: 0.5 }}
@@ -36,24 +36,24 @@ const HeroSection = () => {
         <h4 className="mt-8 text-sm xs:text-[1.2rem]">
           Ready to tailor your web experience? Let&apos;s start crafting!
         </h4>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+        <div className="flex flex-col gap-4 mt-8 sm:flex-row">
           <Link to="/components">
-            <button className="z-10 min-w-[12rem] rounded-md bg-blue-500 px-4 py-2">
+            <button className="z-10 min-w-[12rem] rounded-md bg-blue-500 px-4 py-2 w-full">
               Explore Components
             </button>
           </Link>
           <Link to="/docs">
-            <button className="z-10 min-w-[12rem] rounded-md border px-4 py-2">
+            <button className="z-10 min-w-[12rem] rounded-md border px-4 py-2 w-full">
               Get Started
             </button>
           </Link>
         </div>
-        <div className="mt-4 flex justify-center gap-4 xs:mt-8 sm:justify-normal">
+        <div className="flex justify-center gap-4 mt-4 xs:mt-8 sm:justify-normal">
           <motion.div
             initial={{ scale: 0, opacity: 0, rotate: -180 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             transition={{ duration: 0.7, ease: easeOut, delay: 1.2 }}
-            className="h-10 w-10 rounded-full bg-white p-2 xs:h-12 xs:w-12"
+            className="w-10 h-10 p-2 bg-white rounded-full xs:h-12 xs:w-12"
           >
             <ReactIcon />
           </motion.div>
@@ -61,7 +61,7 @@ const HeroSection = () => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, ease: easeOut, delay: 1.2 }}
-            className="h-10 w-10 rounded-full bg-white p-2 xs:h-12 xs:w-12"
+            className="w-10 h-10 p-2 bg-white rounded-full xs:h-12 xs:w-12"
           >
             <TailwindIcon />
           </motion.div>
