@@ -11,6 +11,7 @@ import {
   Feature5Icon,
   Feature6Icon,
 } from '../../assets/images/icons/feature.icons'
+import { Link } from 'react-router-dom'
 // import FeatureImage from "../../assets/images/FeatureImage";
 
 const featureIcons: React.ReactNode[] = [
@@ -99,9 +100,11 @@ const FeatureSection = () => {
             Ready to unlock the full potential of TailoredUI? Start tailoring
             your UI today!
           </h4>
-          <button className="ml-4 rounded-md bg-blue-500 px-8 py-2 text-white">
-            Get Started
-          </button>
+          <Link to="/docs">
+            <button className="ml-4 rounded-md bg-blue-500 px-8 py-2 text-white">
+              Get Started
+            </button>
+          </Link>
         </motion.div>
         {/* <FeatureImage className="absolute top-0 right-0 h-[100vh] 2xl:w-[105dvw] opacity-50 -z-10 rotate-180 hidden sm:block" /> */}
       </div>

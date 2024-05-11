@@ -4,6 +4,7 @@ import { easeOut, motion } from 'framer-motion'
 // import HeroImage from "../../assets/images/HeroImage";
 import ReactIcon from '../../assets/images/icons/React.icon'
 import TailwindIcon from '../../assets/images/icons/Tailwind.icon'
+import { Link } from 'react-router-dom'
 
 const HeroSection = () => {
   return (
@@ -36,17 +37,16 @@ const HeroSection = () => {
           Ready to tailor your web experience? Let&apos;s start crafting!
         </h4>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <button
-            className="z-10 min-w-[12rem] rounded-md bg-blue-500 px-4 py-2"
-            // onClick={() =>
-            //   alert(`${window.screen.width} ${window.screen.height}`)
-            // }
-          >
-            Explore Components
-          </button>
-          <button className="z-10 min-w-[12rem] rounded-md border px-4 py-2">
-            Get Started
-          </button>
+          <Link to="/components">
+            <button className="z-10 min-w-[12rem] rounded-md bg-blue-500 px-4 py-2">
+              Explore Components
+            </button>
+          </Link>
+          <Link to="/docs">
+            <button className="z-10 min-w-[12rem] rounded-md border px-4 py-2">
+              Get Started
+            </button>
+          </Link>
         </div>
         <div className="mt-4 flex justify-center gap-4 xs:mt-8 sm:justify-normal">
           <motion.div
