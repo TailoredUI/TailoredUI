@@ -31,9 +31,9 @@ const FeatureSection = () => {
 
   return (
     <section className="relative">
-      {/* <div className="bg-slate-400 h-16 w-full absolute left-0" /> */}
-      <div className="mb-16 h-max overflow-hidden">
-        <div className="mb-16 flex flex-col items-center text-center">
+      {/* <div className="absolute left-0 w-full h-16 bg-slate-400" /> */}
+      <div className="mb-16 overflow-hidden h-max">
+        <div className="flex flex-col items-center mb-16 text-center">
           <h1
             ref={titleRef}
             className={`my-8 mt-16 text-2xl font-bold uppercase transition-all duration-[800ms] ease-[cubic-bezier(.41,.15,.68,1.2)] xs:mt-0 sm:mt-20 sm:text-5xl md:mt-0 ${
@@ -94,14 +94,14 @@ const FeatureSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 100 }}
           transition={{ duration: 2.0, ease: 'easeOut' }}
-          className="mt-16 flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:text-left"
+          className="flex flex-col items-center justify-center gap-4 mt-16 text-center sm:flex-row sm:text-left"
         >
           <h4 className="text-lg font-bold sm:w-2/3">
             Ready to unlock the full potential of TailoredUI? Start tailoring
             your UI today!
           </h4>
           <Link to="/docs">
-            <button className="ml-4 rounded-md bg-blue-500 px-8 py-2 text-white">
+            <button className="px-8 py-2 ml-4 text-white bg-blue-500 rounded-md">
               Get Started
             </button>
           </Link>

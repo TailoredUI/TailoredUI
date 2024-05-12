@@ -38,12 +38,12 @@ const HeroSection = () => {
         </h4>
         <div className="flex flex-col gap-4 mt-8 sm:flex-row">
           <Link to="/components">
-            <button className="z-10 min-w-[12rem] rounded-md bg-blue-500 px-4 py-2 w-full">
+            <button className="z-10 w-full px-4 py-2 bg-blue-500 rounded-md ">
               Explore Components
             </button>
           </Link>
           <Link to="/docs">
-            <button className="z-10 min-w-[12rem] rounded-md border px-4 py-2 w-full">
+            <button className="z-10 w-full px-4 py-2 border rounded-md">
               Get Started
             </button>
           </Link>
