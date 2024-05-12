@@ -33,7 +33,7 @@ const FeatureSection = () => {
     <section className="relative">
       {/* <div className="absolute left-0 w-full h-16 bg-slate-400" /> */}
       <div className="mb-16 overflow-hidden h-max">
-        <div className="flex flex-col items-center mb-16 text-center">
+      <div className="flex flex-col items-center mb-16 text-center">
           <h1
             ref={titleRef}
             className={`my-8 mt-16 text-2xl font-bold uppercase transition-all duration-[800ms] ease-[cubic-bezier(.41,.15,.68,1.2)] xs:mt-0 sm:mt-20 sm:text-5xl md:mt-0 ${
@@ -101,7 +101,7 @@ const FeatureSection = () => {
             your UI today!
           </h4>
           <Link to="/docs">
-            <button className="px-8 py-2 ml-4 text-white bg-blue-500 rounded-md">
+          <button className="px-8 py-2 ml-4 text-white bg-blue-500 rounded-md">
               Get Started
             </button>
           </Link>

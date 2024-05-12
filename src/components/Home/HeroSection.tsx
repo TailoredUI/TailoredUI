@@ -38,7 +38,7 @@ const HeroSection = () => {
         </h4>
         <div className="flex flex-col gap-4 mt-8 sm:flex-row">
           <Link to="/components">
-            <button className="z-10 w-full px-4 py-2 bg-blue-500 rounded-md ">
+          <button className="z-10 w-full px-4 py-2 bg-blue-500 rounded-md">
               Explore Components
             </button>
           </Link>
@@ -53,7 +53,7 @@ const HeroSection = () => {
             initial={{ scale: 0, opacity: 0, rotate: -180 }}
             animate={{ scale: 1, opacity: 1, rotate: 0 }}
             transition={{ duration: 0.7, ease: easeOut, delay: 1.2 }}
-            className="w-10 h-10 p-2 bg-white rounded-full xs:h-12 xs:w-12"
+            className="w-10 h-10 p-2 bg-white rounded-full xs:w-12 xs:h-12"
           >
             <ReactIcon />
           </motion.div>
@@ -61,7 +61,7 @@ const HeroSection = () => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, ease: easeOut, delay: 1.2 }}
-            className="w-10 h-10 p-2 bg-white rounded-full xs:h-12 xs:w-12"
+            className="w-10 h-10 p-2 bg-white rounded-full xs:w-12 xs:h-12"
           >
             <TailwindIcon />
           </motion.div>
