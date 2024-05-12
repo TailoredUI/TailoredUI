@@ -55,6 +55,8 @@ const Navbar = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.0, ease: easeOut }}
     >
+      {/* Menu Overlay Component */}
+      <MenuOverlay menuBarOpen={menuBarOpen} setMenuBarOpen={setMenuBarOpen} />
       <nav className="relative z-10 m-auto my-4 w-[90%] rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -215,8 +217,6 @@ const Navbar = () => {
           </motion.ul>
         )}
       </Modal>
-      {/* Menu Overlay Component */}
-      <MenuOverlay menuBarOpen={menuBarOpen} setMenuBarOpen={setMenuBarOpen} />
     </motion.div>
   )
 }

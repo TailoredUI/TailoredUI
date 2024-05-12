@@ -39,21 +39,24 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({
     <section>
       {/* AnimatePresence handles animations */}
       <AnimatePresence>
-        {/* eslint-disable-next-line */}
         {menuBarOpen && (
+          /* eslint-disable */
           <motion.ul
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="absolute left-0 right-0 mx-auto grid text-center p-4 gap-y-2 rounded-lg backdrop-blur-sm z-10 w-[90%] md:w-[95%] xl:w-[75%] grid-rows-3 md:hidden bg-gradient-to-r from-slate-600 to-transparent"
+            initial={{ x: -100 }} // Start position outside the screen on the left
+            animate={{ x: 0 }} // Slide in from the left
+            exit={{ x: -100 }} // Slide out to the left
+            transition={{ duration: 0.5 }}
+            className="absolute h-screen w-screen flex flex-col justify-center items-center gap-y-16 backdrop-blur-sm z-30 md:hidden bg-gradient-to-r from-slate-600 to-transparent text-center p-4"
           >
+            {/* eslint-enable */}
             {/* Map through links to create navigation items */}
             {links.map((link, index) => (
               <motion.li
                 key={index}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                initial={{ x: -100 }} // Start position outside the screen on the left
+                animate={{ x: 0 }} // Slide in from the left
+                exit={{ x: -100 }} // Slide out to the left
+                transition={{ duration: 0.3, delay: index * 0.01 }}
               >
                 {/* Navigation links */}
                 <NavLink
