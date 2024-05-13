@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEventHandler } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import Modal from 'react-modal'
 import { easeOut, motion } from 'framer-motion'
@@ -49,17 +49,18 @@ const Navbar = () => {
     >
       <nav className="relative z-10 m-auto my-4 w-[90%] rounded-lg bg-gradient-to-r from-slate-600 to-transparent p-4 backdrop-blur-sm md:w-[95%] xl:w-[75%]">
         <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <motion.div
-              initial={{ scale: 0, opacity: 0, rotate: -270 }}
-              animate={{ scale: 1, opacity: 1, rotate: 0 }}
-              transition={{ duration: 1.2, ease: easeOut }}
-            >
-              <TailoredUIIcon className="h-10 w-10" />
-            </motion.div>
-            <span className="text-lg font-bold text-white">TailoredUI</span>
-          </div>
-
+          <Link to={'/'}>
+            <div className="flex items-center gap-2">
+              <motion.div
+                initial={{ scale: 0, opacity: 0, rotate: -270 }}
+                animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                transition={{ duration: 1.2, ease: easeOut }}
+              >
+                <TailoredUIIcon className="h-10 w-10" />
+              </motion.div>
+              <span className="text-lg font-bold text-white">TailoredUI</span>
+            </div>
+          </Link>
           <div className="hidden space-x-4 md:flex">
             <NavLink to="/" className="text-white hover:text-gray-300">
               Component
