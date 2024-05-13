@@ -24,7 +24,7 @@ const Collections = () => {
         </h1>
       </div>
       <div>
-        <p className="mt-8 text-center text-xl">
+        <p className="mx-auto mt-8 w-[80%] text-center text-xl">
           Certainly! Here&apos;s a brief description that you can use at the top
           of the Collections Page: Welcome to the Collections Page! Explore
           Tailor UI&apos;s curated collections of pre-designed components,

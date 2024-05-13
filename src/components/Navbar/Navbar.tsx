@@ -62,7 +62,10 @@ const Navbar = () => {
             </div>
           </Link>
           <div className="hidden space-x-4 md:flex">
-            <NavLink to="/" className="text-white hover:text-gray-300">
+            <NavLink
+              to="/collections"
+              className="text-white hover:text-gray-300"
+            >
               Component
             </NavLink>
             <NavLink to="/template" className="text-white hover:text-gray-300">
