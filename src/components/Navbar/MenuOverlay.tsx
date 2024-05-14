@@ -60,7 +60,6 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({
             transition={{ duration: 0.5 }}
             className="fixed insert-0 h-screen w-screen flex flex-col justify-center items-center gap-y-16 backdrop-blur-sm z-30 md:hidden bg-gradient-to-r from-slate-600 to-transparent text-center p-4"
           >
-            {/* eslint-enable */}
             <button
               className="text-white absolute top-9 right-8"
               onClick={() => {
