@@ -7,10 +7,7 @@ import { componentsList } from '../../utils/constant/values'
 import { Component } from '../../utils/types/types'
 import TailoredUIIcon from '../../assets/images/icons/TailoredUI.icon'
 import MenuOverlay from './MenuOverlay.jsx'
-import {
-  HamburgerIcon,
-  CloseIcon,
-} from '../../assets/images/icons/NavBar.icons.js'
+import { HamburgerIcon } from '../../assets/images/icons/NavBar.icons.js'
 
 const Navbar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false)
@@ -128,23 +125,12 @@ const Navbar = () => {
 
             {/*Menu for mobile screens*/}
             <div className="md:hidden">
-              {!menuBarOpen ? (
-                <button
-                  className="text-white"
-                  onClick={() => setMenuBarOpen(true)}
-                >
-                  <HamburgerIcon />
-                </button>
-              ) : (
-                <button
-                  className="text-white"
-                  onClick={() => {
-                    setMenuBarOpen(false)
-                  }}
-                >
-                  <CloseIcon />
-                </button>
-              )}
+              <button
+                className="text-white"
+                onClick={() => setMenuBarOpen(true)}
+              >
+                <HamburgerIcon />
+              </button>
             </div>
           </div>
         </div>
