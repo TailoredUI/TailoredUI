@@ -7,7 +7,7 @@ import TailwindIcon from '../../assets/images/icons/Tailwind.icon'
 
 const HeroSection = () => {
   return (
-    <section className="relative h-[calc(100vh-6rem)] flex items-center mt-10 md:mt-0">
+    <section className="relative flex h-[calc(100vh-6rem)] items-center mt-10 md:mt-0">
       {/* <HeroImage className="absolute bottom-0 right-0 h-full opacity-30 lg:w-full lg:h-max sm:opacity-100" /> */}
       {/* <FeatureImage className="absolute -top-44 right-0 h-[100vh] w-full object-cover -z-10 opacity-100 rotate-180 hidden sm:block" /> */}
 
