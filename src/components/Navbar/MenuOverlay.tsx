@@ -58,7 +58,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({
             animate={{ x: 0 }} // Slide in from the left
             exit={{ x: -100 }} // Slide out to the left
             transition={{ duration: 0.5 }}
-            className="fixed insert-0 h-screen w-screen flex flex-col justify-center items-center gap-y-16 backdrop-blur-sm z-30 md:hidden bg-gradient-to-r from-slate-600 to-transparent text-center p-4"
+            className="fixed insert-0 h-full w-screen flex flex-col justify-center items-center gap-y-16 backdrop-blur-sm z-30 md:hidden bg-gradient-to-r from-slate-600 to-transparent text-center p-4"
           >
             <button
               className="text-white absolute top-9 right-8"
