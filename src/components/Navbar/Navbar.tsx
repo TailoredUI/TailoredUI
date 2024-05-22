@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false)
   const [searchedValue, setSearchedValue] = useState<string>('')
   const [results, setResults] = useState<Component[]>([])
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   useEffect(() => {
     if (searchedValue != '') {
@@ -40,6 +41,10 @@ const Navbar = () => {
       setSearchedValue('')
     }
   }, [isSearchVisible])
+
+  function openMenu() {
+    setIsOpenMenu(!isOpenMenu);
+  }
 
   return (
     <motion.div
@@ -116,7 +121,8 @@ const Navbar = () => {
               Get Started
             </button>
             <div className="md:hidden">
-              <button className="text-white">
+              <button onClick={openMenu} className="text-white">
+              
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -135,6 +141,19 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+        {isOpenMenu && (
+            <div id="menulinks" className="md:hidden justify-between sm:px-16 sm:py-6 flex flex-col pt-5 gap-3 items-center sm:flex-row">
+            <NavLink to="/" className="text-white border w-full text-center py-2 rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out">
+              Component
+            </NavLink>
+            <NavLink to="/template" className="text-white border w-full text-center py-2 rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out">
+              Template
+            </NavLink>
+            <NavLink to="/docs" className="text-white border w-full text-center py-2 rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out">
+              Docs
+            </NavLink>
+          </div>
+        )}
       </nav>
       <Modal
         isOpen={isSearchVisible}
