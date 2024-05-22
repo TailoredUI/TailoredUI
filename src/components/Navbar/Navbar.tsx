@@ -142,14 +142,22 @@ const Navbar = () => {
           </div>
         </div>
         {isOpenMenu && (
-            <div className="flex flex-col sm:flex-row md:hidden justify-between pt-5 gap-3 items-center sm:px-16 sm:py-6">
-            <NavLink to="/" className="w-full py-2 text-center text-white border rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out">
+          <div className="flex flex-col sm:flex-row md:hidden  pt-5 gap-3 sm:px-16 sm:py-6">
+            <NavLink
+              to="/"
+              className="w-full py-2 text-center text-white border rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out"
+            >
               Component
             </NavLink>
-            <NavLink to="/template" className="w-full py-2 text-center text-white border rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out">
+            <NavLink
+              to="/template"
+              className="text-white border w-full py-2 text-center rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out">
               Template
             </NavLink>
-            <NavLink to="/docs" className="w-full py-2 text-center text-white border rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out">
+            <NavLink
+              to="/docs"
+              className="text-white border w-full py-2 text-center rounded-2xl hover:bg-[#3B82F6] transition-all ease-in-out"
+            >
               Docs
             </NavLink>
           </div>
