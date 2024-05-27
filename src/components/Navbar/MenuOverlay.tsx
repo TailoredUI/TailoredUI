@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CloseIcon } from '../../assets/images/icons/NavBar.icons'
-import { useEffect } from 'react'
 
 // Define the props interface for MenuOverlay component
 interface MenuOverlayProps {
@@ -44,6 +43,11 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({
       document.body.style.overflow = 'auto' // Enable scroll
       document.body.style.height = 'auto' // Unlock the body height
     }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+      document.body.style.height = 'auto'
+    }
   }, [menuBarOpen])
 
   // Render the menu overlay
@@ -54,11 +58,11 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({
         {menuBarOpen && (
           /* eslint-disable */
           <motion.ul
-            initial={{ x: -100 }} // Start position outside the screen on the left
+            initial={{ x: '-100%' }} // Start position outside the screen on the left
             animate={{ x: 0 }} // Slide in from the left
-            exit={{ x: -100 }} // Slide out to the left
+            exit={{ x: '-100%' }} // Slide out to the left
             transition={{ duration: 0.5 }}
-            className="fixed insert-0 h-full w-screen flex flex-col justify-center items-center gap-y-16 backdrop-blur-sm z-30 md:hidden bg-gradient-to-r from-slate-600 to-transparent text-center p-4"
+            className="fixed left-0 top-0 h-full w-screen flex flex-col justify-center items-center gap-y-16 backdrop-blur-sm z-30 md:hidden bg-gradient-to-r from-slate-600 to-transparent text-center p-4"
           >
             <button
               className="text-white absolute top-9 right-8"
@@ -72,9 +76,9 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({
             {links.map((link, index) => (
               <motion.li
                 key={index}
-                initial={{ x: -100 }} // Start position outside the screen on the left
+                initial={{ x: '-100%' }} // Start position outside the screen on the left
                 animate={{ x: 0 }} // Slide in from the left
-                exit={{ x: -100 }} // Slide out to the left
+                exit={{ x: '-100%' }} // Slide out to the left
                 transition={{ duration: 0.3, delay: index * 0.01 }}
               >
                 {/* Navigation links */}
