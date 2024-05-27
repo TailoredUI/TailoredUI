@@ -29,7 +29,7 @@ const FeatureSection = () => {
   const isCardContainerInView = useInView(cardContainerRef, { once: true })
 
   return (
-    <section className="relative">
+    <section className="relative my-6">
       {/* <div className="bg-slate-400 h-16 w-full absolute left-0" /> */}
       <div className="mb-16 h-max overflow-hidden">
         <div className="mb-16 flex flex-col items-center text-center">
