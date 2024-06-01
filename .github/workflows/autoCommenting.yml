@@ -1,0 +1,29 @@
+name: PR Activity Monitor
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+jobs:
+  check_activity:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check PR activity
+        id: pr_activity
+        run: |
+          last_activity=$(date -d "$(jq -r '.pull_request.updated_at' $GITHUB_EVENT_PATH)" +%s)
+          now=$(date +%s)
+          days_since_activity=$(( (now - last_activity) / 86400 ))
+          echo "::set-output name=days_since_activity::$days_since_activity"
+
+      - name: Add comment if no activity for a week
+        if: ${{ steps.pr_activity.outputs.days_since_activity }} > 7 && github.event.action != 'closed'
+        run: |
+          echo "It seems there has been no activity on this PR for more than a week. Please review or provide updates."
+          gh pr comment ${{ github.event.number }} --body "It seems there has been no activity on this PR for more than a week. Please review or provide updates."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
