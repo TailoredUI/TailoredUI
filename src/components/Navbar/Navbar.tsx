@@ -13,6 +13,21 @@ const Navbar = () => {
   const [results, setResults] = useState<Component[]>([])
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if(event.ctrlKey && event.key === 'k'){
+        event.preventDefault();
+        setIsSearchVisible(true);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  useEffect(() => {
     if (searchedValue != '') {
       const filteredResults = componentsList.filter((component) =>
         component.name.toLowerCase().includes(searchedValue.toLowerCase())
@@ -76,6 +91,7 @@ const Navbar = () => {
             <span
               className="mr-4 cursor-pointer text-white"
               onClick={handleSearchIconClick}
+              
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
