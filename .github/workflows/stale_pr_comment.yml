@@ -1,0 +1,36 @@
+name: Stale PR Comment
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  stale-pr-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Get Open PRs
+        id: get-prs
+        run: |
+          prs=$(gh pr list --state open --json number,updatedAt)
+          echo "::set-output name=prs::$prs"
+
+      - name: Check for stale PRs
+        id: check-stale
+        run: |
+          stale_prs=$(echo "${{ steps.get-prs.outputs.prs }}" | jq -r '.[] | select((now - (.updatedAt | fromdateiso8601)) > (7 * 24 * 60 * 60)) | .number')
+          echo "::set-output name=stale_prs::$stale_prs"
+
+      - name: Add stale comment
+        if: ${{ steps.check-stale.outputs.stale_prs != '' }}
+        run: |
+          for pr in ${{ steps.check-stale.outputs.stale_prs }}; do
+            COMMENT="It seems there has been no activity on this PR for more than a week. Please review or provide updates."
+            echo "$COMMENT"
+            gh pr comment $pr -b "$COMMENT"
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
