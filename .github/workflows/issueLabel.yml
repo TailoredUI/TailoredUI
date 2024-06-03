@@ -1,4 +1,4 @@
-name: Auto Label Issues
+name: Auto Label Issues v2
 
 on:
   issues:
