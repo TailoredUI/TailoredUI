@@ -1,36 +1,35 @@
-name: Stale PR Comment
+name: Close Stale PRs
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  pull_request:
+    types: 
+        - opened
+        - reopened
+        - synchronize
+
+permissions:
+    pull-requests: write
+    issues: write        
 
 jobs:
-  stale-pr-check:
+  close-stale-prs:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Get Open PRs
-        id: get-prs
-        run: |
-          prs=$(gh pr list --state open --json number,updatedAt)
-          echo "::set-output name=prs::$prs"
-
-      - name: Check for stale PRs
-        id: check-stale
-        run: |
-          stale_prs=$(echo "${{ steps.get-prs.outputs.prs }}" | jq -r '.[] | select((now - (.updatedAt | fromdateiso8601)) > (7 * 24 * 60 * 60)) | .number')
-          echo "::set-output name=stale_prs::$stale_prs"
-
-      - name: Add stale comment
-        if: ${{ steps.check-stale.outputs.stale_prs != '' }}
-        run: |
-          for pr in ${{ steps.check-stale.outputs.stale_prs }}; do
-            COMMENT="It seems there has been no activity on this PR for more than a week. Please review or provide updates."
-            echo "$COMMENT"
-            gh pr comment $pr -b "$COMMENT"
-          done
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Close Stale PRs
+        uses: actions/stale@v7
+        with:
+            repo-token: ${{ secrets.GITHUB_TOKEN }}
+            stale-pr-message: 'This PR has been automatically closed due to inactivity from the owner for 15 days.'
+            days-before-pr-stale: 15
+            days-before-pr-close: 0
+            exempt-pr-author: false
+            exempt-pr-labels: ''
+            only-labels: ''
+            operations-per-run: 30
+            remove-stale-when-updated: true
+            debug-only: false
