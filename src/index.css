@@ -19,16 +19,21 @@ body {
 
 /* Track */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #6b65e7; /* Set your desired color */
-  border-radius: 5px; /* Optional: Add rounded corners */
+  background-color: #4a46b3;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #4a46b3; /* Change color on hover if desired */
+  background-color: #6b65e7;
+  cursor: grab;
+}
+
+/* Handle on grabbing */
+::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
 }
