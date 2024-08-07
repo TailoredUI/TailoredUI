@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 interface ResizableDivProps {
   children: React.ReactNode
-  w?: string | null
+  w?: number | null
+  maxWidth: number | null
 }
 
 /**
@@ -12,14 +13,18 @@ interface ResizableDivProps {
  * @returns a resizable div
  */
 
-const ResizableDiv: React.FC<ResizableDivProps> = ({ children, w }) => {
+const ResizableDiv: React.FC<ResizableDivProps> = ({
+  children,
+  w,
+  maxWidth,
+}) => {
   const [width, setWidth] = useState<number>(1296)
   const [isDragging, setIsDragging] = useState<boolean>(false)
   const [initialX, setInitialX] = useState<number>(0)
 
   useEffect(() => {
     if (w) {
-      setWidth((state) => (w ? parseInt(w) : state))
+      setWidth((state) => (w ? w : state))
     }
   }, [w])
 
@@ -54,9 +59,10 @@ const ResizableDiv: React.FC<ResizableDivProps> = ({ children, w }) => {
 
   return (
     <div
-      className="relative h-80 min-w-[320px] max-w-[1296px]"
+      className="relative h-80 min-w-[320px]"
       style={{
         width: `${width}px`,
+        maxWidth: `${maxWidth}px`,
       }}
     >
       <div

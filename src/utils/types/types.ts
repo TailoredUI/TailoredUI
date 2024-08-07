@@ -15,3 +15,5 @@ export type CustomizableComponentSchema = {
   name: string
   options: CustomizableComponentOptions[]
 }
+
+export type ViewPort = 'xs' | 'sm' | 'md' | 'lg' | 'xl'

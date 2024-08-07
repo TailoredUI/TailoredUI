@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -6,21 +6,105 @@ import { selectComponent } from '../../redux/action'
 
 import ResizableDiv from '../../components/Reusable/Resizable/ResizableDiv.tsx'
 import CodeBlock from '../../components/CodeBlock/CodeBlock'
+import ViewportSelector from '../../components/Reusable/PreviewComponents/ViewportSelector.tsx'
+import type { ViewPort } from '../../utils/types/types.ts'
 
 interface InterfacePreviewProps {
   children: React.ReactNode
   pathToConfig?: string
 }
 
+export const sizes: {
+  xs: number
+  sm: number
+  md: number
+  lg: number
+  xl: number
+  '2xl': number
+  '3xl': number
+} = {
+  xs: 350,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  '2xl': 1536,
+  '3xl': 1920,
+}
+
+export const viewportOptions: ViewPort[] = ['xs', 'sm', 'md', 'lg', 'xl']
+
 const Preview: React.FC<InterfacePreviewProps> = ({
   children,
   pathToConfig = '',
 }) => {
   const [toggleView, setToggleView] = useState('view')
-  const [selectedViewport, setSelectedViewport] = useState('xl')
+  const [selectedViewport, setSelectedViewport] = useState<ViewPort>('xl')
+  const [maxResizableWidth, setMaxResizableWidth] = useState<number | null>(
+    null
+  )
+  const [allowedViewport, setAllowedViewport] =
+    useState<ViewPort[]>(viewportOptions)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const resizableDivWrapperRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const updateViewports = () => {
+      if (resizableDivWrapperRef.current) {
+        const sortedSizes = Object.entries(sizes)
+          .map(([key, value]) => [key, value] as [ViewPort, number])
+          .sort((a, b) => a[1] - b[1])
+
+        const smallerViewports: ViewPort[] = sortedSizes.reduce(
+          (acc, [key, value]) => {
+            if (
+              value <
+              (resizableDivWrapperRef.current as HTMLDivElement).clientWidth
+            ) {
+              acc.push(key)
+            }
+
+            return acc
+          },
+          [] as ViewPort[]
+        )
+        setAllowedViewport(smallerViewports)
+
+        let left = 0
+        let right = sortedSizes.length - 1
+        let result: ViewPort | undefined = undefined
+        while (left <= right) {
+          const mid = Math.floor((left + right) / 2)
+          if (
+            sortedSizes[mid][1] < resizableDivWrapperRef.current.clientWidth
+          ) {
+            result = sortedSizes[mid][0]
+            left = mid + 1
+          } else {
+            right = mid - 1
+          }
+        }
+        setSelectedViewport(result || 'xs')
+        setMaxResizableWidth(getViewportSize(result || '3xl'))
+      }
+    }
+
+    updateViewports()
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateViewports()
+    })
+
+    if (resizableDivWrapperRef.current) {
+      resizeObserver.observe(resizableDivWrapperRef.current)
+    }
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [])
 
   const handleClickedCustomization = () => {
     dispatch(selectComponent(pathToConfig))
@@ -31,29 +115,11 @@ const Preview: React.FC<InterfacePreviewProps> = ({
     setToggleView(toggle)
   }
 
-  const handleViewPortSelection = (select: string) => {
-    setSelectedViewport(select)
+  const handleViewportChange = (viewport: 'xs' | 'sm' | 'md' | 'lg' | 'xl') => {
+    setSelectedViewport(viewport)
   }
 
-  const getViewportSize = (sizeKey: string): string | null => {
-    const sizes: {
-      xs: string
-      sm: string
-      md: string
-      lg: string
-      xl: string
-      '2xl': string
-      '3xl': string
-    } = {
-      xs: '350',
-      sm: '640',
-      md: '768',
-      lg: '1024',
-      xl: '1280',
-      '2xl': '1536',
-      '3xl': '1920',
-    }
-
+  const getViewportSize = (sizeKey: string): number | null => {
     return sizes[sizeKey as keyof typeof sizes] || null
   }
 
@@ -111,36 +177,11 @@ const Preview: React.FC<InterfacePreviewProps> = ({
             </div>
           </div>
           <div className="hidden items-center gap-4 text-slate-400 lg:flex">
-            <span
-              onClick={() => handleViewPortSelection('xs')}
-              className={`flex h-9 w-10 items-center justify-center rounded-md ${selectedViewport === 'xs' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
-            >
-              xs
-            </span>
-            <span
-              onClick={() => handleViewPortSelection('sm')}
-              className={`flex h-9 w-10 items-center justify-center rounded-md ${selectedViewport === 'sm' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
-            >
-              sm
-            </span>
-            <span
-              onClick={() => handleViewPortSelection('md')}
-              className={`flex h-9 w-10 items-center justify-center rounded-md ${selectedViewport === 'md' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
-            >
-              md
-            </span>
-            <span
-              onClick={() => handleViewPortSelection('lg')}
-              className={`flex h-9 w-10 items-center justify-center rounded-md ${selectedViewport === 'lg' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
-            >
-              lg
-            </span>
-            <span
-              onClick={() => handleViewPortSelection('xl')}
-              className={`hidden h-9 w-10 items-center justify-center rounded-md xl:flex ${selectedViewport === 'xl' ? 'bg-white shadow-subtle' : 'bg-black shadow-soft'} cursor-pointer bg-opacity-5`}
-            >
-              xl
-            </span>
+            <ViewportSelector
+              allowedViewport={allowedViewport}
+              selectedViewport={selectedViewport}
+              onViewportChange={handleViewportChange}
+            />
           </div>
           <div
             onClick={() => handleClickedCustomization()}
@@ -149,9 +190,15 @@ const Preview: React.FC<InterfacePreviewProps> = ({
             Customize
           </div>
         </div>
-        <div className="select-none rounded-lg bg-white p-1 text-slate-500 xs:p-4">
+        <div
+          ref={resizableDivWrapperRef}
+          className="select-none rounded-lg bg-white p-1 text-slate-500 xs:p-4"
+        >
           {toggleView === 'view' ? (
-            <ResizableDiv w={getViewportSize(selectedViewport)}>
+            <ResizableDiv
+              w={getViewportSize(selectedViewport)}
+              maxWidth={maxResizableWidth}
+            >
               {children}
             </ResizableDiv>
           ) : (
